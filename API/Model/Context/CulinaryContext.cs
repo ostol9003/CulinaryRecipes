@@ -23,12 +23,12 @@ namespace API.Model.Context
       
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Category>(entity => entity.Property(e => e.Id).ValueGeneratedNever());
-            modelBuilder.Entity<Ingredient>(entity => entity.Property(e => e.Id).ValueGeneratedNever());
-            modelBuilder.Entity<Recipe>(entity => entity.Property(e => e.Id).ValueGeneratedNever());
-            modelBuilder.Entity<RecipeCategory>(entity => entity.Property(e => e.Id).ValueGeneratedNever());
-            modelBuilder.Entity<RecipeIngredient>(entity => entity.Property(e => e.Id).ValueGeneratedNever());
-            modelBuilder.Entity<User>(entity => entity.Property(e => e.Id).ValueGeneratedNever());
+            modelBuilder.Entity<Category>(entity => entity.Property(e => e.Id).ValueGeneratedOnAdd());
+            modelBuilder.Entity<Ingredient>(entity => entity.Property(e => e.Id).ValueGeneratedOnAdd());
+            modelBuilder.Entity<Recipe>(entity => entity.Property(e => e.Id).ValueGeneratedOnAdd());
+            modelBuilder.Entity<RecipeCategory>(entity => entity.Property(e => e.Id).ValueGeneratedOnAdd());
+            modelBuilder.Entity<RecipeIngredient>(entity => entity.Property(e => e.Id).ValueGeneratedOnAdd());
+            modelBuilder.Entity<User>(entity => entity.Property(e => e.Id).ValueGeneratedOnAdd());
 
 
         }

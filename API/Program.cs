@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using API.Model.Context;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,7 +9,10 @@ builder.Services.AddDbContext<CulinaryContext>(options =>
                          ?? throw new InvalidOperationException("Connection string 'CulinaryContext' not found.")));
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(
+    option => 
+        option.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
