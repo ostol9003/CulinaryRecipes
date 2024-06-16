@@ -1,11 +1,8 @@
-﻿/*
- using CulinaryRecipesApp.ServiceReference;
-
-namespace CulinaryRecipesApp.Services
+﻿namespace CulinaryRecipesApp.Services
 {
     public abstract class ADataStore
     { 
-        protected OrderService orderService;
+        protected RecipeService recipeService;
         public ADataStore()
         {
             /*  //In case of using HTTPS on local - that's only for testing 
@@ -19,9 +16,8 @@ namespace CulinaryRecipesApp.Services
                 };
 
                 var client = new HttpClient(handler);
-             
-            orderService = new OrderService("http://localhost:5209", new System.Net.Http.HttpClient());
+             */
+            recipeService = new RecipeService("http://localhost:7117", new System.Net.Http.HttpClient());
         }
     }
 }
-        */

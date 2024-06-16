@@ -13,7 +13,8 @@ namespace CulinaryRecipesApp
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
+            DependencyService.Register<CategoryDataStore>();
+
             MainPage = new AppShell();
         }
 
