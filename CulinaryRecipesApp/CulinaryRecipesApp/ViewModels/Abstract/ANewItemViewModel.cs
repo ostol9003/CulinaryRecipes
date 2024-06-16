@@ -1,5 +1,4 @@
 ﻿using CulinaryRecipesApp.Services;
-using CulinaryRecipesApp.ViewModels.Abstract;
 using Xamarin.Forms;
 
 namespace CulinaryRecipesApp.ViewModels.Abstract

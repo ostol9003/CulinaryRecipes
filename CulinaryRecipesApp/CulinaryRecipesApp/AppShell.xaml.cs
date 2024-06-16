@@ -1,18 +1,17 @@
-﻿using CulinaryRecipesApp.ViewModels;
-using CulinaryRecipesApp.Views;
-using System;
-using System.Collections.Generic;
+﻿using System;
+using CulinaryRecipesApp.Views.CategoryV;
 using Xamarin.Forms;
 
 namespace CulinaryRecipesApp
 {
-    public partial class AppShell : Xamarin.Forms.Shell
+    public partial class AppShell : Shell
     {
         public AppShell()
         {
             InitializeComponent();
-            Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
-            Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
+            Routing.RegisterRoute(nameof(CategoryDetailPage), typeof(CategoryDetailPage));
+            Routing.RegisterRoute(nameof(CategoryNewPage), typeof(CategoryNewPage));
+         
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)

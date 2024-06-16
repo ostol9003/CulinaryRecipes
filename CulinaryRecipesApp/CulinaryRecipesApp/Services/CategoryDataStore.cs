@@ -1,19 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using CulinaryRecipesApp.Helpers;
+using RecipeAppService;
 
 namespace CulinaryRecipesApp.Services
 {
     public class CategoryDataStore : ListDataStore<CategoryDto>
     {
-        public ClientDataStore()
+        public CategoryDataStore()
             : base()
             => items = recipeService.CategoryAllAsync().GetAwaiter().GetResult().ToList();
         public override CategoryDto Find(CategoryDto item)
-            => items.FirstOrDefault(arg => arg.Id == item.Id);
+            => items.Where((CategoryDto arg) => arg.Id == item.Id).FirstOrDefault();
         public override CategoryDto Find(int id)
             => items.FirstOrDefault(s => s.Id == id);
         public override async Task Refresh()
@@ -22,7 +20,7 @@ namespace CulinaryRecipesApp.Services
             => await recipeService.CategoryDELETEAsync(item.Id).HandleRequest();
         public override async Task<bool> UpdateItemInService(CategoryDto item)
             => await recipeService.CategoryPUTAsync(item.Id, item).HandleRequest();
-        public override async Task<bool> AddItemToService(ClientForView item)
-            => await orderService.ClientPOSTAsync(item).HandleRequest();
+        public override async Task<bool> AddItemToService(CategoryDto item)
+            => await recipeService.CategoryPOSTAsync(item).HandleRequest();
     }
 }

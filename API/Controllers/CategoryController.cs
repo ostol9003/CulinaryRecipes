@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 namespace API.Controllers
 {
     [Route("api/[controller]")]
+    [ApiController]
     public class CategoryController : ControllerBase
     {
         private readonly CulinaryContext _context;
@@ -95,7 +96,7 @@ namespace API.Controllers
         {
             if (_context.Categories == null)
             {
-                return Problem("Entity set 'CompanyContext.Clients'  is null.");
+                return Problem("Entity set 'CompanyContext.Category'  is null.");
             }
             var category = (Category)dto;
 

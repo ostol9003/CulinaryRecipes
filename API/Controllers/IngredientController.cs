@@ -91,7 +91,7 @@ namespace API.Controllers
         {
             if (_context.Ingredients == null)
             {
-                return Problem("Entity set 'CompanyContext.Clients'  is null.");
+                return Problem("Entity set 'CompanyContext.Category'  is null.");
             }
             var ingredient = (Ingredient)dto;
 
