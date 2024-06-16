@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CulinaryRecipesApp.Views.CategoryV.CategoryPage"
+             xmlns:local="clr-namespace:CulinaryRecipesApp.ViewModels.CategoryVM"
+             xmlns:recipeAppService="clr-namespace:RecipeAppService"
+             x:Name="BrowseCategoryPage"
+>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" />
+    </ContentPage.ToolbarItems>
+    <RefreshView x:DataType="local:CategoryViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+        <CollectionView x:Name="ItemsListView"
+                ItemsSource="{Binding Items}"
+                SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10" x:DataType="recipeAppService:CategoryDto">
+                        <Label Text="{Binding Id}" 
+                               Style="{DynamicResource ListItemTextStyle}" 
+                               FontSize="16" />
+                        <Label Text="{Binding Name}" 
+                               Style="{DynamicResource ListItemTextStyle}" 
+                               FontSize="16" />
+                        <Label Text="{Binding Url}" 
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:CategoryViewModel}}, Path=ItemTapped}"	
+                                CommandParameter="{Binding .}">
+                            </TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </RefreshView>
+</ContentPage>
