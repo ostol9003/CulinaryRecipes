@@ -1,7 +1,7 @@
-﻿using API.Helpers;
+﻿using API.DTO;
+using API.Helpers;
 using API.Model;
 using API.Model.Context;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,18 +19,22 @@ namespace API.Controllers
 
         // GET: api/category
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Category>>> GetCategory()
+        public async Task<ActionResult<IEnumerable<CategoryDto>>> GetCategory()
         {
             if (_context.Categories == null)
             {
                 return NotFound();
             }
-            return await _context.Categories.Include(c => c.Recipes).Where(c=> c.IsActive == true).ToListAsync();
+            return (await _context.Categories
+                .Include(c => c.Recipes)
+                .Where(c=> c.IsActive == true).ToListAsync())
+                .Select(ctg => (CategoryDto) ctg)
+                .ToList();
         }
 
         // GET: api/category/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Category>> GetCategory(int id)
+        public async Task<ActionResult<CategoryDto>> GetCategory(int id)
         {
             if (_context.Categories == null)
             {
@@ -47,22 +51,22 @@ namespace API.Controllers
                 return NotFound();
             }
 
-            return category;
+            return (CategoryDto)category;
         }
 
         // PUT: api/category/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{catId}")]
-        public async Task<IActionResult> PutCatgory(int catId, Category category)
+        public async Task<IActionResult> PutCatgory(int catId, CategoryDto dto)
         {
-            if (catId != category.Id)
-            {
-                return BadRequest();
-            }
+        
 
             var catDb = _context.Categories
-                .FirstOrDefault(cli => category.Id == cli.Id)
-                .CopyProperties(category);
+                .FirstOrDefault(cli => catId == cli.Id)
+                .CopyProperties(dto);
+
+            catDb.UpdatedAt = DateTime.Now;
+            
             _context.Entry(catDb).State = EntityState.Modified;
 
             try
@@ -87,29 +91,22 @@ namespace API.Controllers
         // POST: api/category
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Category>> PostCategory(Category category)
+        public async Task<ActionResult<CategoryDto>> PostCategory(CategoryDto dto)
         {
             if (_context.Categories == null)
             {
                 return Problem("Entity set 'CompanyContext.Clients'  is null.");
             }
-            _context.Categories.Add(category);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (CategoryExists(category.Id))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            var category = (Category)dto;
 
+            category.CreatedAt = DateTime.Now;
+            category.UpdatedAt = DateTime.Now;
+            category.IsActive = true;
+
+            _context.Categories.Add(category);
+            await _context.SaveChangesAsync();
+
+           
             return Ok(category);
         }
 
@@ -118,11 +115,6 @@ namespace API.Controllers
         public async Task<IActionResult> DeleteCategory(int id)
         {
             if (_context.Categories == null)
-            {
-                return NotFound();
-            }
-            var categoy = await _context.Categories.FindAsync(id);
-            if (categoy == null)
             {
                 return NotFound();
             }
