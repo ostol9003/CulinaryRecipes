@@ -1,7 +1,8 @@
-﻿using AppMobileOrders.Services;
+﻿using CulinaryRecipesApp.Services;
+using CulinaryRecipesApp.ViewModels.Abstract;
 using Xamarin.Forms;
 
-namespace AppMobileOrders.ViewModels.Abstract
+namespace CulinaryRecipesApp.ViewModels.Abstract
 {
     public abstract class ANewItemViewModel<T> : BaseViewModel
     {

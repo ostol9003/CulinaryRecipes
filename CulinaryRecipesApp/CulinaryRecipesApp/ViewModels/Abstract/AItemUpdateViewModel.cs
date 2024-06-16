@@ -1,8 +1,9 @@
-﻿using AppMobileOrders.Services;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using CulinaryRecipesApp.Services;
+using CulinaryRecipesApp.ViewModels.Abstract;
 using Xamarin.Forms;
 
-namespace AppMobileOrders.ViewModels.Abstract
+namespace CulinaryRecipesApp.ViewModels.Abstract
 {
     [QueryProperty(nameof(ItemId), nameof(ItemId))]
     public abstract class AItemUpdateViewModel<T> : BaseViewModel
