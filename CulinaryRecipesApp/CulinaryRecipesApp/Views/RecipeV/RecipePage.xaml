@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CulinaryRecipesApp.Views.RecipeV.RecipePage"
+             xmlns:local="clr-namespace:CulinaryRecipesApp.ViewModels.RecipeVM"
+             xmlns:recipeAppService="clr-namespace:RecipeAppService"
+             x:Name="BrowseRecipePage">
+
+    <!-- Definicja zasobu dla ramki (Frame) -->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="RecipeFrameStyle" TargetType="Frame">
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="Padding" Value="10" />
+                <Setter Property="Margin" Value="5" />
+                <Setter Property="HasShadow" Value="True" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <RefreshView x:DataType="local:RecipeViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+        <CollectionView ItemsSource="{Binding Items}" SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <!-- Używamy ramki (Frame) dla każdego elementu -->
+                    <Frame Style="{StaticResource RecipeFrameStyle}">
+                        <StackLayout Padding="5" x:DataType="recipeAppService:RecipeDto">
+                            <!-- Zdjęcie -->
+                            <Image Source="{Binding Url}" Aspect="AspectFill" HeightRequest="150" />
+
+                            <!-- Nazwa przepisu -->
+                            <Label Text="{Binding Title}" 
+                                   Style="{DynamicResource ListItemTextStyle}" 
+                                   FontSize="16" />
+
+                            <!-- Opis przepisu -->
+                            <Label Text="{Binding Description, StringFormat='Description: {0}'}" 
+                                   Style="{DynamicResource ListItemDetailTextStyle}" 
+                                   FontSize="13" />
+
+                            <!-- Czas przygotowania -->
+                            <Label Text="{Binding PrepTime, StringFormat='Prep Time: {0} minutes'}" 
+                                   Style="{DynamicResource ListItemDetailTextStyle}" 
+                                   FontSize="13" />
+
+                            <!-- Czas gotowania -->
+                            <Label Text="{Binding CookTime, StringFormat='Cook Time: {0} minutes'}" 
+                                   Style="{DynamicResource ListItemDetailTextStyle}" 
+                                   FontSize="13" />
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </RefreshView>
+</ContentPage>

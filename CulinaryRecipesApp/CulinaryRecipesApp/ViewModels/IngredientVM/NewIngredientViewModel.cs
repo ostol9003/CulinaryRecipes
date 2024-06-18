@@ -1,9 +1,9 @@
 ﻿using CulinaryRecipesApp.ViewModels.Abstract;
 using RecipeAppService;
 
-namespace CulinaryRecipesApp.ViewModels.CategoryVM
+namespace CulinaryRecipesApp.ViewModels.IngredientVM
 {
-    public class NewCategoryViewModel : ANewItemViewModel<CategoryDto>
+    public class NewIngredientViewModel : ANewItemViewModel<IngredientDto>
     {
         #region fields
 
@@ -30,15 +30,15 @@ namespace CulinaryRecipesApp.ViewModels.CategoryVM
             set => SetProperty(ref url, value);
         }
         #endregion
-        public NewCategoryViewModel()
-            : base("Add new category")
+        public NewIngredientViewModel()
+            : base("Add new Ingredient")
         {
         }
 
         public override bool ValidateSave()
             => !string.IsNullOrWhiteSpace(Name) && !string.IsNullOrWhiteSpace(Url);
-        public override CategoryDto SetItem()
-            => new CategoryDto()
+        public override IngredientDto SetItem()
+            => new IngredientDto()
             {
                 //Id = 0,
                 Name = Name,

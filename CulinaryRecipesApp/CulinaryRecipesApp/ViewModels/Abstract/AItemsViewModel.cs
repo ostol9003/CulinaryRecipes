@@ -3,7 +3,6 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using CulinaryRecipesApp.Services;
-using CulinaryRecipesApp.ViewModels.Abstract;
 using Xamarin.Forms;
 
 namespace CulinaryRecipesApp.ViewModels.Abstract

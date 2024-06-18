@@ -4,6 +4,7 @@ using API.Model.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(CulinaryContext))]
-    partial class CulinaryContextModelSnapshot : ModelSnapshot
+    [Migration("20240618145903_add is active for recipe")]
+    partial class addisactiveforrecipe
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -83,9 +86,6 @@ namespace API.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasColumnName("name");
 
-                    b.Property<int?>("RecipeId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_at");
@@ -97,8 +97,6 @@ namespace API.Migrations
                         .HasColumnName("url");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("RecipeId");
 
                     b.ToTable("Ingredients");
                 });
@@ -149,12 +147,6 @@ namespace API.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_at");
-
-                    b.Property<string>("Url")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)")
-                        .HasColumnName("url");
 
                     b.Property<int?>("UserId")
                         .HasColumnType("int");
@@ -311,13 +303,6 @@ namespace API.Migrations
                     b.ToTable("CategoryRecipe");
                 });
 
-            modelBuilder.Entity("API.Model.Ingredient", b =>
-                {
-                    b.HasOne("API.Model.Recipe", null)
-                        .WithMany("Ingredients")
-                        .HasForeignKey("RecipeId");
-                });
-
             modelBuilder.Entity("API.Model.Recipe", b =>
                 {
                     b.HasOne("API.Model.User", null)
@@ -353,7 +338,7 @@ namespace API.Migrations
                         .IsRequired();
 
                     b.HasOne("API.Model.Recipe", "Recipe")
-                        .WithMany("RecipeIngredients")
+                        .WithMany("Ingredients")
                         .HasForeignKey("RecipeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -386,8 +371,6 @@ namespace API.Migrations
             modelBuilder.Entity("API.Model.Recipe", b =>
                 {
                     b.Navigation("Ingredients");
-
-                    b.Navigation("RecipeIngredients");
                 });
 
             modelBuilder.Entity("API.Model.User", b =>

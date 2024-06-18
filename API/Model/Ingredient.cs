@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace API.Model
 {
@@ -28,7 +29,6 @@ namespace API.Model
         [Column("url")]
         [StringLength(200)]
         public string Url { get; set; }
-
         public ICollection<RecipeIngredient> Ingredients { get; set; } = new List<RecipeIngredient>();
     }
 }

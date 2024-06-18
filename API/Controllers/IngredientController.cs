@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 namespace API.Controllers
 {
     [Route("api/[controller]")]
+    [ApiController]
     public class IngredientController : ControllerBase
     {
         private readonly CulinaryContext _context;
@@ -50,7 +51,7 @@ namespace API.Controllers
             return (IngredientDto)ingredient;
         }
 
-        // PUT: api/category/5
+        // PUT: api/Ingredient/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{ingId}")]
         public async Task<IActionResult> PutIngredent(int ingId, IngredientDto dto)
@@ -84,14 +85,14 @@ namespace API.Controllers
             return Ok();
         }
 
-        // POST: api/category
+        // POST: api/Ingredient
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<IngredientDto>> PostIngedient(IngredientDto dto)
         {
             if (_context.Ingredients == null)
             {
-                return Problem("Entity set 'CompanyContext.Category'  is null.");
+                return Problem("Entity set 'CompanyContext.Ingredient'  is null.");
             }
             var ingredient = (Ingredient)dto;
 
@@ -106,7 +107,7 @@ namespace API.Controllers
             return Ok(ingredient);
         }
 
-        // DELETE: api/category/5
+        // DELETE: api/Ingredient/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteIngredent(int id)
         {
