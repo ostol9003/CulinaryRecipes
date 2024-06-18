@@ -17,16 +17,29 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="NSwag.ApiDescription.Client" Version="14.0.7">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="System.Runtime.Serialization.Primitives" Version="4.3.0" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\IngredientV\IngredientDetailPage.xaml.cs">
+      <DependentUpon>IngredientDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\IngredientV\IngredientNewPage.xaml.cs">
+      <DependentUpon>IngredientNewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\IngredientV\IngredientPage.xaml.cs">
+      <DependentUpon>IngredientPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\IngredientV\IngredientUpdatePage.xaml.cs">
+      <DependentUpon>IngredientUpdatePage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\CategoryV\CategoryDetailPage.xaml.cs">
       <DependentUpon>CategoryDetailPage.xaml</DependentUpon>
     </Compile>
@@ -39,9 +52,24 @@
     <Compile Update="Views\CategoryV\CategoryUpdatePage.xaml.cs">
       <DependentUpon>CategoryUpdatePage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\RecipeV\RecipePage.xaml.cs">
+      <DependentUpon>RecipePage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\IngredientV\IngredientDetailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\IngredientV\IngredientNewPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\IngredientV\IngredientPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\IngredientV\IngredientUpdatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\CategoryV\CategoryDetailPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
@@ -54,11 +82,14 @@
     <EmbeddedResource Update="Views\CategoryV\CategoryUpdatePage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\RecipeV\RecipePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
     <OpenApiReference Include="OpenAPIs\swagger.json" CodeGenerator="NSwagCSharp" Namespace="RecipeAppService" ClassName="RecipeApp">
-      <SourceUri>https://localhost:5209/swagger/v1/swagger.json</SourceUri>
+      <SourceUri>https://localhost:7117/swagger/v1/swagger.json</SourceUri>
     </OpenApiReference>
   </ItemGroup>
 
