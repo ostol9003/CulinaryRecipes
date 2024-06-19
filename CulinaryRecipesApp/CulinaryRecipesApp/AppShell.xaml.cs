@@ -1,6 +1,5 @@
 ﻿using System;
 using CulinaryRecipesApp.Views.CategoryV;
-using CulinaryRecipesApp.Views.CategoryV;
 using CulinaryRecipesApp.Views.IngredientV;
 using CulinaryRecipesApp.Views.RecipeV;
 using Xamarin.Forms;
@@ -23,6 +22,7 @@ namespace CulinaryRecipesApp
             //Recipe
              Routing.RegisterRoute(nameof(RecipeDetailPage), typeof(RecipeDetailPage));
              Routing.RegisterRoute(nameof(RecipeUpdatePage), typeof(RecipeUpdatePage));
+             Routing.RegisterRoute(nameof(RecipeNewPage), typeof(RecipeNewPage));
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)

@@ -83,6 +83,9 @@
     <Compile Update="Views\CategoryV\CategoryUpdatePage.xaml.cs">
       <DependentUpon>CategoryUpdatePage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\RecipeV\RecipeNewPage.xaml.cs">
+      <DependentUpon>RecipeNewPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\RecipeV\RecipeUpdatePage.xaml.cs">
       <DependentUpon>RecipeUpdatePage.xaml</DependentUpon>
     </Compile>
@@ -117,6 +120,9 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\CategoryV\CategoryUpdatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\RecipeV\RecipeNewPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\RecipeV\RecipeUpdatePage.xaml">
