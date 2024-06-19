@@ -3,16 +3,73 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CulinaryRecipesApp.Views.CategoryV.CategoryNewPage"
              Shell.PresentationMode="ModalAnimated"
-             Title="{Binding Title}">
+             Title="{Binding Title}"
+             BackgroundColor="White">
+
+    <!-- Zasoby stylów -->
+    <ContentPage.Resources>
+        <!-- Styl dla etykiet -->
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontFamily" Value="Montserrat-Regular" />
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="Margin" Value="0,5,0,0" />
+        </Style>
+
+        <!-- Styl dla przycisków -->
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="BackgroundColor" Value="#B4B4B8" />
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Padding" Value="15,10" />
+            <Setter Property="CornerRadius" Value="2" />
+        </Style>
+
+        <!-- Styl dla głównego StackLayout -->
+        <Style TargetType="StackLayout">
+            <Setter Property="Spacing" Value="10" />
+            <Setter Property="Padding" Value="5" />
+        </Style>
+
+        <!-- Styl dla ramki (Frame) -->
+        <Style TargetType="Frame">
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="CornerRadius" Value="2" />
+            <Setter Property="HasShadow" Value="True" />
+            <Setter Property="BackgroundColor" Value="White" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
-        <StackLayout Spacing="3" Padding="15">
-            <Label Text="Name" FontSize="Medium" />
-            <Editor Text="{Binding Name, Mode=TwoWay}" FontSize="Medium"/>
-            <Label Text="Url" FontSize="Medium" />
-            <Editor Text="{Binding Url, Mode=TwoWay}" FontSize="Medium"/>
-            <StackLayout Orientation="Horizontal">
-                <Button Text="Anuluj" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
-                <Button Text="Zapisz" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
+        <StackLayout>
+            <!-- Nazwa kategorii -->
+            <Label Text="Name"/>
+            <Frame>
+                <Editor Text="{Binding Name, Mode=TwoWay}"
+                        Margin="5"
+                        HeightRequest="10"
+                        BackgroundColor="#E3E1D9"
+                        TextColor="Black"
+                        Placeholder="Enter name..." />
+            </Frame>
+
+            <!-- URL kategorii -->
+            <Label Text="Url" />
+            <Frame>
+                <Editor Text="{Binding Url, Mode=TwoWay}"
+                        Margin="5"
+                        HeightRequest="10"
+                        BackgroundColor="#E3E1D9"
+                        TextColor="Black"
+                        Placeholder="Enter URL..." />
+            </Frame>
+
+            <!-- Przyciski -->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+                <Button Text="Cancel" Command="{Binding CancelCommand}" />
+                <Button Text="Save" Command="{Binding SaveCommand}" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
