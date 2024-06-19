@@ -6,7 +6,7 @@
              xmlns:recipeAppService="clr-namespace:RecipeAppService"
              x:Name="BrowseRecipePage">
 
-    <!-- Definicja zasobu dla ramki (Frame) -->
+   
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="RecipeFrameStyle" TargetType="Frame">
@@ -14,6 +14,7 @@
                 <Setter Property="Padding" Value="10" />
                 <Setter Property="Margin" Value="5" />
                 <Setter Property="HasShadow" Value="True" />
+                <Setter Property="BorderColor" Value="AliceBlue"/>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -26,33 +27,39 @@
         <CollectionView ItemsSource="{Binding Items}" SelectionMode="None">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <!-- Używamy ramki (Frame) dla każdego elementu -->
+                    
                     <Frame Style="{StaticResource RecipeFrameStyle}">
                         <StackLayout Padding="5" x:DataType="recipeAppService:RecipeDto">
-                            <!-- Zdjęcie -->
-                            <Image Source="{Binding Url}" Aspect="AspectFill" HeightRequest="150" />
+                            
+                            <Image Source="{Binding Url}" Aspect="AspectFill" HeightRequest="100" />
 
-                            <!-- Nazwa przepisu -->
+                        
                             <Label Text="{Binding Title}" 
                                    Style="{DynamicResource ListItemTextStyle}" 
                                    FontSize="16" />
 
-                            <!-- Opis przepisu -->
                             <Label Text="{Binding Description, StringFormat='Description: {0}'}" 
                                    Style="{DynamicResource ListItemDetailTextStyle}" 
                                    FontSize="13" />
 
-                            <!-- Czas przygotowania -->
                             <Label Text="{Binding PrepTime, StringFormat='Prep Time: {0} minutes'}" 
                                    Style="{DynamicResource ListItemDetailTextStyle}" 
                                    FontSize="13" />
 
-                            <!-- Czas gotowania -->
                             <Label Text="{Binding CookTime, StringFormat='Cook Time: {0} minutes'}" 
                                    Style="{DynamicResource ListItemDetailTextStyle}" 
                                    FontSize="13" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    NumberOfTapsRequired="1"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type local:RecipeViewModel}}, Path=ItemTapped}"	
+                                    CommandParameter="{Binding .}">
+                                </TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
                         </StackLayout>
+                       
                     </Frame>
+
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>

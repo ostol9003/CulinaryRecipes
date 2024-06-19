@@ -11,7 +11,8 @@ namespace API.Mappings
             CreateMap<Recipe, RecipeDto>()
                 .ForMember(dest => dest.Ingredients,
                     opt => opt.MapFrom(src => src.RecipeIngredients.Select(ri => ri.Ingredient).ToList()))
-                .ForMember(dest => dest.Categories, opt => opt.MapFrom(src => src.Categories));
+                .ForMember(dest => dest.Categories, opt => opt.MapFrom(src => src.Categories))
+                .ForMember(dst => dst.RecipeIngredient, opt => opt.MapFrom(src => src.RecipeIngredients));
 
 
             CreateMap<RecipeDto, Recipe>()

@@ -4,6 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
     <ProduceReferenceAssemblyInOutDir>true</ProduceReferenceAssemblyInOutDir>
+    <LangVersion>default</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -52,6 +53,12 @@
     <Compile Update="Views\CategoryV\CategoryUpdatePage.xaml.cs">
       <DependentUpon>CategoryUpdatePage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\RecipeV\RecipeUpdatePage.xaml.cs">
+      <DependentUpon>RecipeUpdatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\RecipeV\RecipeDetailPage.xaml.cs">
+      <DependentUpon>RecipeDetailPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\RecipeV\RecipePage.xaml.cs">
       <DependentUpon>RecipePage.xaml</DependentUpon>
     </Compile>
@@ -80,6 +87,12 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\CategoryV\CategoryUpdatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\RecipeV\RecipeUpdatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\RecipeV\RecipeDetailPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\RecipeV\RecipePage.xaml">

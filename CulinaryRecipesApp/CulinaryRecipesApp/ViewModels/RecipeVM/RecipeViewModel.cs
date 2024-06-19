@@ -17,7 +17,7 @@ namespace CulinaryRecipesApp.ViewModels.RecipeVM
 
         public override async Task GoToAddPage() => await Shell.Current.GoToAsync(nameof(RecipePage));
 
-        public override async Task GoToDetailsPage(RecipeDto Recipe)
-        => await Shell.Current.GoToAsync($"{nameof(RecipePage)}?{nameof(RecipeViewModel)}={Recipe.Id}");
+        public override async Task GoToDetailsPage(RecipeDto recipe)
+        => await Shell.Current.GoToAsync($"{nameof(RecipeDetailPage)}?{nameof(RecipeDetailViewModel.ItemId)}={recipe.Id}");
     }
 }
