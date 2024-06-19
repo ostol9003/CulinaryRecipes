@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CulinaryRecipesApp.Views.RecipeIngredientV.RecipeIngredientUpdatePage"
+             Title="Update Recipe Ingredient">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="10" Padding="15">
+                <Label Text="Recipe" FontSize="Medium" />
+                <Picker ItemsSource="{Binding Recipes}"
+                        ItemDisplayBinding="{Binding Title}"
+                        SelectedItem="{Binding SelectedRecipe}"
+                        FontSize="Medium" />
+
+                <Label Text="Ingredient" FontSize="Medium" />
+                <Picker ItemsSource="{Binding Ingredients}"
+                        ItemDisplayBinding="{Binding Name}"
+                        SelectedItem="{Binding SelectedIngredient}"
+                        FontSize="Medium" />
+
+                <Label Text="Quantity" FontSize="Medium" />
+                <Editor Text="{Binding Quantity, Mode=TwoWay}" FontSize="Medium" Keyboard="Numeric" />
+
+                <Label Text="Unit" FontSize="Medium" />
+                <Editor Text="{Binding Unit, Mode=TwoWay}" FontSize="Medium" />
+
+                <StackLayout Orientation="Horizontal" Spacing="10">
+                    <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand" />
+                    <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

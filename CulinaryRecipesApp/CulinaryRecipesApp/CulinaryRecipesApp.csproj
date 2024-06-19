@@ -59,6 +59,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\RecipeIngredientV\RecipeIngredientDetailPage.xaml.cs">
+      <DependentUpon>RecipeIngredientDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\RecipeIngredientV\NewRecipeIngredientPage.xaml.cs">
+      <DependentUpon>NewRecipeIngredientPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\RecipeIngredientV\RecipeIngredientPage.xaml.cs">
+      <DependentUpon>RecipeIngredientPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\RecipeIngredientV\RecipeIngredientUpdatePage.xaml.cs">
+      <DependentUpon>RecipeIngredientUpdatePage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\IngredientV\IngredientDetailPage.xaml.cs">
       <DependentUpon>IngredientDetailPage.xaml</DependentUpon>
     </Compile>
@@ -98,6 +110,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\RecipeIngredientV\RecipeIngredientDetailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\RecipeIngredientV\NewRecipeIngredientPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\RecipeIngredientV\RecipeIngredientPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\RecipeIngredientV\RecipeIngredientUpdatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\IngredientV\IngredientDetailPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>

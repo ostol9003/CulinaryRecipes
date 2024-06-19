@@ -2,6 +2,7 @@
 using API.Helpers;
 using API.Model;
 using API.Model.Context;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -11,13 +12,16 @@ using System.Threading.Tasks;
 namespace API.Controllers
 {
     [Route("api/[controller]")]
+    [ApiController]
     public class RecipeIngredientController : ControllerBase
     {
         private readonly CulinaryContext _context;
+        private readonly IMapper _mapper;
 
-        public RecipeIngredientController(CulinaryContext context)
+        public RecipeIngredientController(CulinaryContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         // GET: api/recipeingredient
@@ -29,12 +33,13 @@ namespace API.Controllers
                 return NotFound();
             }
 
-            return (await _context.RecipeIngredient
+            var ri = (await _context.RecipeIngredient
                 .Include(ri => ri.Recipe)
                 .Include(ri => ri.Ingredient)
                 .Where(ri => ri.IsActive).ToListAsync())
-                .Select(ri => (RecipeIngredientDto)ri)
+                .Select(ri => ri)
                 .ToList();
+            return _mapper.Map<List<RecipeIngredientDto>>(ri);
         }
 
         // GET: api/recipeingredient/5
@@ -56,7 +61,7 @@ namespace API.Controllers
                 return NotFound();
             }
 
-            return (RecipeIngredientDto)recipeIngredient;
+            return _mapper.Map<RecipeIngredientDto>(recipeIngredient);
         }
 
        

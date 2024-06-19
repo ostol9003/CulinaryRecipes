@@ -5,6 +5,7 @@
        xmlns:categoryV="clr-namespace:CulinaryRecipesApp.Views.CategoryV"
        xmlns:ingredientV="clr-namespace:CulinaryRecipesApp.Views.IngredientV"
        xmlns:recipeV="clr-namespace:CulinaryRecipesApp.Views.RecipeV"
+       xmlns:recipeIngredientV="clr-namespace:CulinaryRecipesApp.Views.RecipeIngredientV;assembly=CulinaryRecipesApp"
        Title="CulinaryRecipesApp"
        x:Class="CulinaryRecipesApp.AppShell">
 
@@ -95,6 +96,9 @@
 
     <FlyoutItem Title="Ingredient" Icon="icon_feed.png">
         <ShellContent Route="IngredientPage" ContentTemplate="{DataTemplate ingredientV:IngredientPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Recipe - Ingredient" Icon="icon_feed.png">
+        <ShellContent Route="RecipeIngredientPage" ContentTemplate="{DataTemplate recipeIngredientV:RecipeIngredientPage}" />
     </FlyoutItem>
 
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CulinaryRecipesApp.Views.RecipeIngredientV.RecipeIngredientDetailPage"
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        <StackLayout Spacing="3" Padding="15">
+            <Label Text="{Binding Id}" 
+                   Style="{DynamicResource ListItemTextStyle}" 
+                   FontSize="16" />
+            <Label Text="{Binding RecipeName, StringFormat='Recipe: {0}'}" 
+                   Style="{DynamicResource ListItemDetailTextStyle}"
+                   FontSize="13" />
+
+            <Label Text="{Binding IngredientName, StringFormat='Ingredient: {0}'}" 
+                   Style="{DynamicResource ListItemDetailTextStyle}" 
+                   FontSize="13" />
+
+            <Label Text="{Binding Quantity, StringFormat='Quantity: {0}'}" 
+                   Style="{DynamicResource ListItemDetailTextStyle}"
+                   FontSize="13" />
+            <Label Text="{Binding Unit, StringFormat='Unit: {0}'}" 
+                   Style="{DynamicResource ListItemDetailTextStyle}"
+                   FontSize="13" />
+
+            <StackLayout Orientation="Horizontal" Spacing="10">
+                <Button Text="Edit" Command="{Binding UpdateCommand}" HorizontalOptions="FillAndExpand" />
+                <Button Text="Delete" Command="{Binding DeleteCommand}" HorizontalOptions="FillAndExpand" />
+                <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
