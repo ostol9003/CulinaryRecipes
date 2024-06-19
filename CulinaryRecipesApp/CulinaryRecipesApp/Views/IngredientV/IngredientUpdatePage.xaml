@@ -1,19 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CulinaryRecipesApp.Views.IngredientV.IngredientUpdatePage">
+             x:Class="CulinaryRecipesApp.Views.IngredientV.IngredientUpdatePage"
+             Shell.PresentationMode="ModalAnimated"
+             Title="{Binding Title}"
+             BackgroundColor="White">
+
     <ContentPage.Content>
-            <StackLayout Spacing="3" Padding="15">
-                <Label Text="Id" FontSize="Medium" />
-                <Label Text="{Binding Id, Mode=TwoWay}" FontSize="Medium" />
-                <Label Text="Name" FontSize="Medium" />
-                <Editor Text="{Binding Name, Mode=TwoWay}" FontSize="Medium"/>
-                <Label Text="Url" FontSize="Medium" />
-                <Editor Text="{Binding Url, Mode=TwoWay}" FontSize="Medium"/>
-                <StackLayout Orientation="Horizontal">
-                    <Button Text="Anuluj" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
-                    <Button Text="Zapisz" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
+        <StackLayout>
+            <Label Text="Edit Ingredient" FontSize="Header" HorizontalOptions="Center" Margin="0,10,0,0" FontFamily="OoohBaby-Regular" />
+            <!-- Ramka wokół formularza -->
+            <Frame CornerRadius="5"
+                   BorderColor="#F6F5F2"
+                   BackgroundColor="#FFFBF5"
+                   Margin="20"
+                   Padding="5"
+                   HasShadow="True">
+
+                <StackLayout>
+                    <Label Text="Edit Name" FontSize="15"/>
+                    <Editor Text="{Binding Name, Mode=TwoWay}"
+                            HeightRequest="40"
+                            VerticalOptions="Start"
+                            Margin="0,5,0,5"
+                            BackgroundColor="#7D7C7C"
+                            TextColor="Black"
+                            Placeholder="EEdit name..." />
+
+
+                    <Label Text="Edit Url" FontSize="15"/>
+                    <Editor Text="{Binding Url, Mode=TwoWay}"
+                            HeightRequest="60"
+                            VerticalOptions="Start"
+                            Margin="0,5,0,5"
+                            BackgroundColor="#7D7C7C"
+                            TextColor="Black"
+                            Placeholder="Edit image url..." 
+                            />
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+                        <Button Text="Cancel" Command="{Binding CancelCommand}" />
+                        <Button Text="Save" Command="{Binding SaveCommand}" />
+                    </StackLayout>
                 </StackLayout>
-            </StackLayout>
-        </ContentPage.Content>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>

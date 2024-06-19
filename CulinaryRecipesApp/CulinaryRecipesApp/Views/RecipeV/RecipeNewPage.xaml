@@ -2,32 +2,84 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CulinaryRecipesApp.Views.RecipeV.RecipeNewPage"
-             Title="Add New Recipe">
+             Shell.PresentationMode="ModalAnimated"
+             Title="{Binding Title}"
+             BackgroundColor="White">
+
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Spacing="10" Padding="15">
-                <Label Text="Title" FontSize="Medium" />
-                <Editor Text="{Binding Title, Mode=TwoWay}" FontSize="Medium" />
+            <StackLayout>
+                <Label Text="Add New Recipe" FontSize="Header" HorizontalOptions="Center" Margin="0,10,0,0" FontFamily="OoohBaby-Regular" />
 
-                <Label Text="Description" FontSize="Medium" />
-                <Editor Text="{Binding Description, Mode=TwoWay}" FontSize="Medium" />
+                <!-- Ramka wokół formularza -->
+                <Frame CornerRadius="5"
+                       BorderColor="#F6F5F2"
+                       Margin="20"
+                       Padding="5"
+                       HasShadow="True">
+                    <StackLayout>
+                        <Label Text="Title" FontSize="15"/>
+                        <Editor Text="{Binding Title, Mode=TwoWay}"
+                                HeightRequest="40"
+                                VerticalOptions="Start"
+                                Margin="0,5,0,5"
+                                BackgroundColor="#7D7C7C"
+                                TextColor="Black"
+                                Placeholder="Enter title..." />
 
-                <Label Text="Instructions" FontSize="Medium" />
-                <Editor Text="{Binding Instructions, Mode=TwoWay}" FontSize="Medium" />
+                        <Label Text="Description" FontSize="15"/>
+                        <Editor Text="{Binding Description, Mode=TwoWay}"
+                                HeightRequest="60"
+                                VerticalOptions="Start"
+                                Margin="0,5,0,5"
+                                BackgroundColor="#7D7C7C"
+                                TextColor="Black"
+                                Placeholder="Enter description..." />
 
-                <Label Text="Prep Time (minutes)" FontSize="Medium" />
-                <Editor Text="{Binding PrepTime, Mode=TwoWay}" FontSize="Medium" Keyboard="Numeric" />
+                        <Label Text="Instructions" FontSize="15"/>
+                        <Editor Text="{Binding Instructions, Mode=TwoWay}"
+                                HeightRequest="60"
+                                VerticalOptions="Start"
+                                Margin="0,5,0,5"
+                                BackgroundColor="#7D7C7C"
+                                TextColor="Black"
+                                Placeholder="Enter instructions..." />
 
-                <Label Text="Cook Time (minutes)" FontSize="Medium" />
-                <Editor Text="{Binding CookTime, Mode=TwoWay}" FontSize="Medium" Keyboard="Numeric" />
+                        <Label Text="Prep Time (minutes)" FontSize="15"/>
+                        <Editor Text="{Binding PrepTime, Mode=TwoWay}"
+                                HeightRequest="40"
+                                VerticalOptions="Start"
+                                Margin="0,5,0,5"
+                                BackgroundColor="#7D7C7C"
+                                TextColor="Black"
+                                Placeholder="Enter prep time..."
+                                Keyboard="Numeric" />
 
-                <Label Text="Url" FontSize="Medium" />
-                <Editor Text="{Binding Url, Mode=TwoWay}" FontSize="Medium" />
+                        <Label Text="Cook Time (minutes)" FontSize="15"/>
+                        <Editor Text="{Binding CookTime, Mode=TwoWay}"
+                                HeightRequest="40"
+                                VerticalOptions="Start"
+                                Margin="0,5,0,5"
+                                BackgroundColor="#7D7C7C"
+                                TextColor="Black"
+                                Placeholder="Enter cook time..."
+                                Keyboard="Numeric" />
 
-                <StackLayout Orientation="Horizontal" Spacing="10">
-                    <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand" />
-                    <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand" />
-                </StackLayout>
+                        <Label Text="Url" FontSize="15"/>
+                        <Editor Text="{Binding Url, Mode=TwoWay}"
+                                HeightRequest="40"
+                                VerticalOptions="Start"
+                                Margin="0,5,0,5"
+                                BackgroundColor="#7D7C7C"
+                                TextColor="Black"
+                                Placeholder="Enter image url..." />
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+                            <Button Text="Cancel" Command="{Binding CancelCommand}" />
+                            <Button Text="Save" Command="{Binding SaveCommand}" />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

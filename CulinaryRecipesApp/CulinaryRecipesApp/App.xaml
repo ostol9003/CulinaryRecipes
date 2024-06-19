@@ -46,7 +46,7 @@
             <!-- Styl dla etykiet -->
             <Style TargetType="Label">
                 <Setter Property="FontSize" Value="20" />
-                <Setter Property="FontFamily" Value="Montserrat-Regular" />
+                <Setter Property="FontFamily" Value="Montserrat-Medium" />
                 <Setter Property="TextColor" Value="Black" />
             </Style>
 
@@ -64,6 +64,14 @@
                 <Setter Property="HasShadow" Value="True" />
                 <Setter Property="BackgroundColor" Value="White" />
                 <Setter Property="Margin" Value="5" />
+            </Style>
+
+            <Style x:Key="RecipeFrameStyle" TargetType="Frame">
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="Padding" Value="10" />
+                <Setter Property="Margin" Value="5" />
+                <Setter Property="HasShadow" Value="True" />
+                <Setter Property="BorderColor" Value="AliceBlue"/>
             </Style>
         </ResourceDictionary>        
     </Application.Resources>

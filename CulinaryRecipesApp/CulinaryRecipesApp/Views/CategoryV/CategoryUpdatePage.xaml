@@ -12,6 +12,7 @@
             <!-- Ramka wokół formularza -->
             <Frame CornerRadius="5"
                    BorderColor="#F6F5F2"
+                   BackgroundColor="#FFFBF5"
                    Margin="20"
                    Padding="5"
                    HasShadow="True">

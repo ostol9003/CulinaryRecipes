@@ -5,36 +5,51 @@
              xmlns:local="clr-namespace:CulinaryRecipesApp.ViewModels.IngredientVM"
              xmlns:recipeAppService="clr-namespace:RecipeAppService"
              x:Name="BrowseIngredientPage"
->
+             BackgroundColor="White">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" />
+        <ToolbarItem Text="Add new" Command="{Binding AddItemCommand}"/>
     </ContentPage.ToolbarItems>
     <RefreshView x:DataType="local:IngredientViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
         <CollectionView x:Name="ItemsListView"
-                ItemsSource="{Binding Items}"
-                SelectionMode="None">
+                        ItemsSource="{Binding Items}"
+                        SelectionMode="None">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="3" VerticalItemSpacing="3"/>
+            </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout Padding="10" x:DataType="recipeAppService:IngredientDto">
-                        <Label Text="{Binding Id}" 
-                               Style="{DynamicResource ListItemTextStyle}" 
-                               FontSize="16" />
-                        <Label Text="{Binding Name}" 
-                               Style="{DynamicResource ListItemTextStyle}" 
-                               FontSize="16" />
-                        <Label Text="{Binding Url}" 
-                            Style="{DynamicResource ListItemDetailTextStyle}"
-                            FontSize="13" />
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer 
-                                NumberOfTapsRequired="1"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:IngredientViewModel}}, Path=ItemTapped}"	
-                                CommandParameter="{Binding .}">
-                            </TapGestureRecognizer>
-                        </StackLayout.GestureRecognizers>
-                    </StackLayout>
+                    <Frame CornerRadius="5" Padding="0" Margin="0,0,0,5" BackgroundColor="#F6F5F2" HasShadow="True" BorderColor="#F0EBE3">
+                        <StackLayout x:DataType="recipeAppService:IngredientDto">
+                            <Image Source="{Binding Url}" 
+                                   Aspect="AspectFill" 
+                                   HorizontalOptions="FillAndExpand" 
+                                   HeightRequest="150"/>
+                            <Label Text="{Binding Name}" 
+                                   FontSize="30"
+                                   TextColor="Black"
+                                   FontFamily="OoohBaby-Regular"
+                                   Margin="5,0,5,5"
+                                   HorizontalTextAlignment="Center"
+                                   />
+                            <Label Text="{Binding Id, StringFormat='Id no.: {0}'}" 
+                                   FontSize="14"
+                                   TextColor="Black" 
+                                   FontFamily="Montserrat-Light"
+                                   Margin="5,5,5,5"
+                                   HorizontalTextAlignment="Center"
+                                   />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    NumberOfTapsRequired="1"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type local:IngredientViewModel}}, Path=ItemTapped}"    
+                                    CommandParameter="{Binding .}">
+                                </TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
     </RefreshView>
 </ContentPage>
+
