@@ -12,6 +12,8 @@ namespace API.DTO
         public double Quantity { get; set; }
         public string Unit { get; set; }
         public bool IsActive { get; set; }
+        public  string RecipeName { get; set; }
+        public  string IngredientName { get; set; }
 
         public static implicit operator RecipeIngredient(RecipeIngredientDto dto)
             => new RecipeIngredient().CopyProperties(dto);

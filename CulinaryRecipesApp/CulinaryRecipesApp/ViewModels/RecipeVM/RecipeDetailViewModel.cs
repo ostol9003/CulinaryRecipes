@@ -18,8 +18,8 @@ namespace CulinaryRecipesApp.ViewModels.RecipeVM
         private string title;
         private string description;
         private string instructions;
-        private int prepTime; // In minutes
-        private int cookTime; // In minutes
+        private int prepTime; 
+        private int cookTime; 
         private List<IngredientDto> ingredients;
         private List<CategoryDto> categories;
         private List<RecipeIngredientDto> recipeIngredient;

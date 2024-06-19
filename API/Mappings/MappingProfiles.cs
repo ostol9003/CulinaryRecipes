@@ -12,12 +12,17 @@ namespace API.Mappings
                 .ForMember(dest => dest.Ingredients,
                     opt => opt.MapFrom(src => src.RecipeIngredients.Select(ri => ri.Ingredient).ToList()))
                 .ForMember(dest => dest.Categories, opt => opt.MapFrom(src => src.Categories))
-                .ForMember(dst => dst.RecipeIngredient, opt => opt.MapFrom(src => src.RecipeIngredients));
+                .ForMember(dst => dst.RecipeIngredient, opt => opt.MapFrom(src => src.RecipeIngredients))
+                ;
 
 
             CreateMap<RecipeDto, Recipe>()
                 .ForMember(dest => dest.Ingredients, opt => opt.Ignore()) 
-                .ForMember(dest => dest.Categories, opt => opt.Ignore()); 
+                .ForMember(dest => dest.Categories, opt => opt.Ignore());
+
+            CreateMap<RecipeIngredient, RecipeIngredientDto>()
+                .ForMember(dest => dest.IngredientName, opt => opt.MapFrom(src => src.Ingredient.Name))
+                .ForMember(dest => dest.RecipeName, opt => opt.MapFrom(src => src.Recipe.Title));
 
 
         }
