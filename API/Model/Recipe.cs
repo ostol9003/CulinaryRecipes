@@ -38,7 +38,14 @@ namespace API.Model
         [Column("updated_at")]
         public DateTime UpdatedAt { get; set; }
 
-        public ICollection<RecipeIngredient> Ingredients { get; set; } = new List<RecipeIngredient>();
+        [Column("is_active")]
+        public bool IsActive { get; set; }
+        [Column("url")]
+        [StringLength(200)]
+        public string Url { get; set; }
+
+        public ICollection<RecipeIngredient> RecipeIngredients { get; set; } = new List<RecipeIngredient>();
+        public List<Ingredient> Ingredients { get; set; } = new ();
         public List<Category> Categories { get; set; } = new();
      
     }

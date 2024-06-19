@@ -1,5 +1,7 @@
 using System.Text.Json.Serialization;
+using API.Mappings;
 using API.Model.Context;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +14,12 @@ builder.Services.AddDbContext<CulinaryContext>(options =>
 builder.Services.AddControllers().AddJsonOptions(
     option => 
         option.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+
+builder.Services.AddScoped(provider => new MapperConfiguration(cfg =>
+{
+    cfg.AddProfile(new MappingProfiles());
+
+}).CreateMapper());
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -26,7 +34,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+
 
 app.UseAuthorization();
 

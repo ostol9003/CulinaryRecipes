@@ -1,7 +1,5 @@
-﻿/*using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using AppMobileOrders.Services;
-using CulinaryRecipesApp.Services;
 
 namespace CulinaryRecipesApp.Services
 {
@@ -49,4 +47,3 @@ namespace CulinaryRecipesApp.Services
         }
     }
 }
-*/

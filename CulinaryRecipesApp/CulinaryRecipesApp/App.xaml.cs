@@ -13,9 +13,13 @@ namespace CulinaryRecipesApp
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
+            DependencyService.Register<CategoryDataStore>();
+            DependencyService.Register<IngredientDataStore>();
+            DependencyService.Register<RecipeDataStore>();
+
             MainPage = new AppShell();
         }
+
 
         protected override void OnStart()
         {

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 namespace API.Controllers
 {
     [Route("api/[controller]")]
+    [ApiController]
     public class CategoryController : ControllerBase
     {
         private readonly CulinaryContext _context;
@@ -42,7 +43,7 @@ namespace API.Controllers
             }
             var category = await _context.Categories
                 .Include(c => c.Recipes)
-                .ThenInclude(r => r.Ingredients)
+                .ThenInclude(r => r.RecipeIngredients)
                 .ThenInclude(i => i.Ingredient)
                 .FirstOrDefaultAsync(c => c.Id == id);
 
@@ -59,7 +60,10 @@ namespace API.Controllers
         [HttpPut("{catId}")]
         public async Task<IActionResult> PutCatgory(int catId, CategoryDto dto)
         {
-        
+            if (catId != dto.Id)
+            {
+                return BadRequest();
+            }
 
             var catDb = _context.Categories
                 .FirstOrDefault(cli => catId == cli.Id)
@@ -95,7 +99,7 @@ namespace API.Controllers
         {
             if (_context.Categories == null)
             {
-                return Problem("Entity set 'CompanyContext.Clients'  is null.");
+                return Problem("Entity set 'CompanyContext.Category'  is null.");
             }
             var category = (Category)dto;
 
