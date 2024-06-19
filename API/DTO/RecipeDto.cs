@@ -16,6 +16,7 @@ namespace API.DTO
         public int PrepTime { get; set; } // In minutes
         public int CookTime { get; set; } // In minutes
         public List<IngredientDto> Ingredients { get; set; } = new();
+        public List<RecipeIngredientDto> RecipeIngredient { get; set; } = new();
         public List<CategoryDto> Categories { get; set; } = new();
         public string Url { get; set; }
 

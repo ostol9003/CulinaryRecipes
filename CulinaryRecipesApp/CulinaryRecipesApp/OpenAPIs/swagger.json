@@ -1321,6 +1321,13 @@
             },
             "nullable": true
           },
+          "recipeIngredient": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RecipeIngredientDto"
+            },
+            "nullable": true
+          },
           "categories": {
             "type": "array",
             "items": {

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CulinaryRecipesApp.Views.RecipeV.RecipeUpdatePage"
+             Title="Update Recipe">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="10" Padding="15">
+                <Label Text="Id" FontSize="Medium" />
+                <Label Text="{Binding Id, Mode=TwoWay}" FontSize="Medium" />
+
+                <Label Text="Title" FontSize="Medium" />
+                <Editor Text="{Binding Title, Mode=TwoWay}" FontSize="Medium"/>
+
+                <Label Text="Description" FontSize="Medium" />
+                <Editor Text="{Binding Description, Mode=TwoWay}" FontSize="Medium"/>
+
+                <Label Text="Instructions" FontSize="Medium" />
+                <Editor Text="{Binding Instructions, Mode=TwoWay}" FontSize="Medium"/>
+
+                <Label Text="Prep Time (minutes)" FontSize="Medium" />
+                <Editor Text="{Binding PrepTime, Mode=TwoWay}" FontSize="Medium" Keyboard="Numeric"/>
+
+                <Label Text="Cook Time (minutes)" FontSize="Medium" />
+                <Editor Text="{Binding CookTime, Mode=TwoWay}" FontSize="Medium" Keyboard="Numeric"/>
+
+                <Label Text="Url" FontSize="Medium" />
+                <Editor Text="{Binding Url, Mode=TwoWay}" FontSize="Medium"/>
+
+                <StackLayout Orientation="Horizontal" Spacing="10">
+                    <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"/>
+                    <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
