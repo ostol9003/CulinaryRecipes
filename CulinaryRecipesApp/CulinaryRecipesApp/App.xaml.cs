@@ -17,6 +17,7 @@ namespace CulinaryRecipesApp
             DependencyService.Register<IngredientDataStore>();
             DependencyService.Register<RecipeDataStore>();
             DependencyService.Register<RecipeIngredientDataStore>();
+            DependencyService.Register<ExtraValuesDataStore>();
 
             MainPage = new AppShell();
         }
