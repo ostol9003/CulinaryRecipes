@@ -17,7 +17,7 @@ namespace API.Controllers
             _context = context;
         }
 
-        // Endpoint to get the number of recipes in a given category
+      
         [HttpGet]
         [Route("RecipesInCategory")]
         public async Task<ActionResult<int>> RecipesInCategory(int categoryId)
@@ -34,7 +34,7 @@ namespace API.Controllers
             return count > 0 ? count : 0;
         }
 
-        // Endpoint to get the number of recipes containing a specific ingredient
+     
         [HttpGet]
         [Route("RecipesWithIngredient")]
         public async Task<ActionResult<int>> RecipesWithIngredient(int ingredientId)
@@ -51,7 +51,7 @@ namespace API.Controllers
             return count > 0 ? count : 0;
         }
 
-        // Endpoint to get the average preparation time of all recipes
+      
         [HttpGet]
         [Route("AveragePrepTime")]
         public async Task<ActionResult<double>> AveragePrepTime()
@@ -64,6 +64,7 @@ namespace API.Controllers
                 }
 
                 var averagePrepTime = await _context.Recipes
+                    .Where(r => r.IsActive)
                     .AverageAsync(r => (double)(r.PrepTime + r.CookTime));
 
                 return Ok(averagePrepTime > 0 ? averagePrepTime : 0);
@@ -74,7 +75,7 @@ namespace API.Controllers
             }
         }
 
-        // Endpoint to get the average preparation time of recipes in a selected category
+     
         [HttpGet]
         [Route("AveragePrepTimeInCategory")]
         public async Task<ActionResult<double>> AveragePrepTimeInCategory(int categoryId)
@@ -87,6 +88,7 @@ namespace API.Controllers
                 }
 
                 var averagePrepTime = await _context.RecipeCategory
+                        .Where(r => r.IsActive)
                     .Where(rc => rc.CategoryId == categoryId)
                     .Join(
                         _context.Recipes,
