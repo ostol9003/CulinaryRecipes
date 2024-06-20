@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using CulinaryRecipesApp.Services;
 using RecipeAppService;
@@ -103,8 +104,8 @@ public class ExtraValuesVieModel : BaseViewModel
 
     public async Task AveragePrepTimeInCategoryAsync()
     {
-        AveragePrepTime = await extraValuesDataStore.AveragePrepTime();
-        AveragePrepTimeInCategory = await extraValuesDataStore.AveragePrepTimeInCategory(SelectedCategory.Id);
+        AveragePrepTime = Math.Round(await extraValuesDataStore.AveragePrepTime(), 2);
+        AveragePrepTimeInCategory = Math.Round(await extraValuesDataStore.AveragePrepTimeInCategory(SelectedCategory.Id), 2);
         RecipesInCategory = await extraValuesDataStore.RecipesInCategory(SelectedCategory.Id);
     }
 
