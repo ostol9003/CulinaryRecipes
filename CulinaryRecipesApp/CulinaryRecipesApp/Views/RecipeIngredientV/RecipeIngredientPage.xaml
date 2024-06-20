@@ -1,47 +1,76 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CulinaryRecipesApp.Views.RecipeIngredientV.RecipeIngredientPage"
              xmlns:local="clr-namespace:CulinaryRecipesApp.ViewModels.RecipeIngredientVM"
              xmlns:recipeAppService="clr-namespace:RecipeAppService"
-             x:Name="BrowseRecipeIngredientPage">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" />
-    </ContentPage.ToolbarItems>
-    <RefreshView x:DataType="local:RecipeIngredientViewModel" Command="{Binding LoadItemsCommand}"
-                 IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
-        <CollectionView x:Name="ItemsListView"
-                        ItemsSource="{Binding Items}"
-                        SelectionMode="None">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout Padding="10" x:DataType="recipeAppService:RecipeIngredientDto">
-                        <Label Text="{Binding Id}"
-                               Style="{DynamicResource ListItemTextStyle}"
-                               FontSize="16" />
-                        <Label Text="{Binding RecipeName, StringFormat='Recipe: {0}'}"
-                               Style="{DynamicResource ListItemDetailTextStyle}"
-                               FontSize="13" />
-                        <Label Text="{Binding IngredientName, StringFormat='Ingredient: {0}'}"
-                               Style="{DynamicResource ListItemTextStyle}"
-                               FontSize="13" />
+             x:Name="BrowseRecipeIngredientPage"
+             BackgroundColor="White"
+             Title="Recipe Ingredients">
 
-                        <Label Text="{Binding Quantity, StringFormat='Quantity: {0}'}"
-                               Style="{DynamicResource ListItemDetailTextStyle}"
-                               FontSize="13" />
-                        <Label Text="{Binding Unit, StringFormat='Unit: {0}'}"
-                               Style="{DynamicResource ListItemDetailTextStyle}"
-                               FontSize="13" />
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer
-                                NumberOfTapsRequired="1"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:RecipeIngredientViewModel}}, Path=ItemTapped}"
-                                CommandParameter="{Binding .}" />
-                        </StackLayout.GestureRecognizers>
-                    </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </RefreshView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add new" Command="{Binding AddItemCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <StackLayout>
+        <Label Text="Recipe Ingredients" FontSize="Large" HorizontalOptions="Center" Margin="0,10,0,20" FontFamily="OoohBaby-Regular" />
+
+        <RefreshView x:DataType="local:RecipeIngredientViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+            <CollectionView x:Name="ItemsListView"
+                            ItemsSource="{Binding Items}"
+                            SelectionMode="None">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="3" VerticalItemSpacing="3"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius="5" Padding="0" Margin="0,0,0,5" BackgroundColor="#F6F5F2" HasShadow="True" BorderColor="#F0EBE3">
+                            <StackLayout Padding="5" x:DataType="recipeAppService:RecipeIngredientDto">
+
+                                <Label Text="{Binding RecipeName}" 
+                                       FontSize="30"
+                                       TextColor="Black"
+                                       FontFamily="OoohBaby-Regular"
+                                       Margin="5,0,5,5"
+                                       HorizontalTextAlignment="Center" />
+
+                                <Label Text="{Binding Id, StringFormat='Id no.: {0}'}"  
+                                       FontSize="14"
+                                       TextColor="Black" 
+                                       FontFamily="Montserrat-Light"
+                                       Margin="5,0,5,5"
+                                       HorizontalTextAlignment="Center"/>
+                                <Label Text="{Binding IngredientName, StringFormat='Ingredient: {0}'}" 
+                                       FontSize="14"
+                                       TextColor="Black" 
+                                       FontFamily="Montserrat-Light"
+                                       Margin="5,0,5,5"
+                                       HorizontalTextAlignment="Center"/>
+                                <Label Text="{Binding Quantity, StringFormat='Quantity: {0}'}" 
+                                       FontSize="14"
+                                       TextColor="Black" 
+                                       FontFamily="Montserrat-Light"
+                                       Margin="5,0,5,5"
+                                       HorizontalTextAlignment="Center"/>
+                                <Label Text="{Binding Unit, StringFormat='Unit: {0}'}" 
+                                       FontSize="14"
+                                       TextColor="Black" 
+                                       FontFamily="Montserrat-Light"
+                                       Margin="5,0,5,5"
+                                       HorizontalTextAlignment="Center"/>
+
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                                        NumberOfTapsRequired="1"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type local:RecipeIngredientViewModel}}, Path=ItemTapped}"    
+                                        CommandParameter="{Binding .}">
+                                    </TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </StackLayout>
 </ContentPage>

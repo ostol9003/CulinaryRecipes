@@ -1,46 +1,78 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CulinaryRecipesApp.Views.ExtraValuesPage"
-             BackgroundColor="White">
-    <ContentPage.Content>
+             x:Name="BrowseExtraValuesPage"
+             BackgroundColor="White"
+             Title="Statistics">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add new" Command="{Binding AddItemCommand}"/>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout>
+        <Label Text="Statistics" FontSize="Large" HorizontalOptions="Center" Margin="0,10,0,20" FontFamily="OoohBaby-Regular" />
+
         <ScrollView>
             <StackLayout Spacing="10" Padding="15">
 
-                <Label Text="Average Preparation Time of All Recipes" FontSize="Medium" />
-                <Label Text="{Binding AveragePrepTime, Mode=OneWay}" HorizontalOptions="Center" FontSize="Medium" />
+                <!-- Combined Frame for Average Preparation Time and Category Selection -->
+                <Frame BackgroundColor="#F6F5F2" BorderColor="#F0EBE3" CornerRadius="10" Padding="10" HasShadow="True">
+                    <StackLayout>
+                        <Label Text="Calculate average preparation time" FontFamily="OoohBaby-Regular" FontSize="20" HorizontalTextAlignment="Center" />
+                        <Label Text="Choose category to calculate:" FontFamily="Montserrat-Light" FontSize="17" HorizontalTextAlignment="Center"/>
 
+                        <!-- Category Selection and Calculation Section -->
+                        <Picker Title="Select Category" 
+                                ItemsSource="{Binding Categories}" 
+                                ItemDisplayBinding="{Binding Name}" 
+                                SelectedItem="{Binding SelectedCategory}"
+                                TitleColor="Gray" />
+                        <Button Text="Calculate" 
+                                Command="{Binding AveragePrepTimeInCategoryCommand}" 
+                                HorizontalOptions="Center" />
 
-                <Picker Title="Select Category"
-                        ItemsSource="{Binding Categories}"
-                        ItemDisplayBinding="{Binding Name}"
-                        SelectedItem="{Binding SelectedCategory}"
-                        FontSize="Medium" Margin="0" />
-                <Button Text="Calculate Average Prep Time in Category"
-                        Command="{Binding AveragePrepTimeInCategoryCommand}"
-                        HorizontalOptions="Center" Margin="4" />
-                <Label Text="Average Preparation Time in Selected Category" FontSize="Medium" />
-                <Label Text="{Binding AveragePrepTimeInCategory, Mode=OneWay}" HorizontalOptions="Center"
-                       FontSize="Medium" />
+                        <Grid Margin="10,0,10,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
 
+                            <Label Text="Average Preparation Time in Selected Category:" Grid.Row="0" Grid.Column="0" FontSize="15" FontFamily="Montserrat-Medium" />
+                            <Label Text="{Binding AveragePrepTimeInCategory, Mode=OneWay}" Grid.Row="0" Grid.Column="1" FontSize="15" FontFamily="Montserrat-Regular" TextColor="#FB3640" />
 
-                <Label Text="Number of Recipes in Selected Category" FontSize="Medium" />
-                <Label Text="{Binding RecipesInCategory, Mode=OneWay}" HorizontalOptions="Center" FontSize="Medium" />
+                            <Label Text="Number of Recipes in Selected Category:" Grid.Row="1" Grid.Column="0" FontSize="15" FontFamily="Montserrat-Medium" />
+                            <Label Text="{Binding RecipesInCategory, Mode=OneWay}" Grid.Row="1" Grid.Column="1" FontSize="15" FontFamily="Montserrat-Regular" TextColor="#FB3640" />
 
+                            <Label Text="Average Preparation Time of All Recipes:" Grid.Row="2" Grid.Column="0" FontSize="15" FontFamily="Montserrat-Medium" />
+                            <Label Text="{Binding AveragePrepTime, Mode=OneWay}" Grid.Row="2" Grid.Column="1" FontSize="15" FontFamily="Montserrat-Regular" TextColor="#FB3640" />
+                        </Grid>
+                    </StackLayout>
+                </Frame>
 
-                <Picker Title="Select Ingredient"
-                        ItemsSource="{Binding Ingredients}"
-                        ItemDisplayBinding="{Binding Name}"
-                        SelectedItem="{Binding SelectedIngredient}"
-                        FontSize="Medium" Margin="0" />
-                <Button Text="Calculate Recipes with Ingredient"
-                        Command="{Binding RecipesWithIngredientCommand}"
-                        HorizontalOptions="Center" Margin="4" />
-                <Label Text="Number of Recipes with Selected Ingredient" FontSize="Medium" />
-                <Label Text="{Binding RecipesWithIngredient, Mode=OneWay}" HorizontalOptions="Center" FontSize="Medium" />
+                <!-- Ingredient Selection and Calculation Frame -->
+                <Frame BackgroundColor="#F6F5F2" BorderColor="#F0EBE3" CornerRadius="10" Padding="10" HasShadow="True">
+                    <StackLayout>
+                        <Label Text="Choose ingredient to calculate:" FontFamily="Montserrat-Light" FontSize="17" HorizontalTextAlignment="Center" />
+                        <Picker Title="Select Ingredient" 
+                                ItemsSource="{Binding Ingredients}" 
+                                ItemDisplayBinding="{Binding Name}" 
+                                SelectedItem="{Binding SelectedIngredient}" 
+                                TitleColor="Gray" />
+                        <Button Text="Calculate Recipes with Ingredient" 
+                                Command="{Binding RecipesWithIngredientCommand}" 
+                                HorizontalOptions="Center" />
+                        <Label Text="Number of Recipes with Selected Ingredient" FontFamily="Montserrat-Light" FontSize="17" HorizontalTextAlignment="Center" />
+                        <Label Text="{Binding RecipesWithIngredient, Mode=OneWay}" FontFamily="Montserrat-Regular" FontSize="17" HorizontalTextAlignment="Center" TextColor="#FB3640" />
+                    </StackLayout>
+                </Frame>
+
             </StackLayout>
         </ScrollView>
-
-    </ContentPage.Content>
+    </StackLayout>
 </ContentPage>

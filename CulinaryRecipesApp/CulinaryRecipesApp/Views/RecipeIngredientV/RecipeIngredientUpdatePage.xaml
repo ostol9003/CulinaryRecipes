@@ -3,32 +3,63 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CulinaryRecipesApp.Views.RecipeIngredientV.RecipeIngredientUpdatePage"
-             Title="Update Recipe Ingredient">
+             Shell.PresentationMode="ModalAnimated"
+             Title="Update Recipe Ingredient"
+             BackgroundColor="White">
+
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Spacing="10" Padding="15">
-                <Label Text="Recipe" FontSize="Medium" />
-                <Picker ItemsSource="{Binding Recipes}"
-                        ItemDisplayBinding="{Binding Title}"
-                        SelectedItem="{Binding SelectedRecipe}"
-                        FontSize="Medium" />
+            <StackLayout>
+                <Label Text="Edit Recipe Ingredient" FontSize="Header" HorizontalOptions="Center" Margin="0,10,0,0" FontFamily="OoohBaby-Regular" />
 
-                <Label Text="Ingredient" FontSize="Medium" />
-                <Picker ItemsSource="{Binding Ingredients}"
-                        ItemDisplayBinding="{Binding Name}"
-                        SelectedItem="{Binding SelectedIngredient}"
-                        FontSize="Medium" />
+                <!-- Ramka wokół formularza -->
+                <Frame CornerRadius="5"
+                       BorderColor="#F6F5F2"
+                       BackgroundColor="#FFFBF5"
+                       Margin="20"
+                       Padding="5"
+                       HasShadow="True">
 
-                <Label Text="Quantity" FontSize="Medium" />
-                <Editor Text="{Binding Quantity, Mode=TwoWay}" FontSize="Medium" Keyboard="Numeric" />
+                    <StackLayout>
+                        <Label Text="Recipe" FontSize="15"/>
+                        <Picker ItemsSource="{Binding Recipes}"
+                                ItemDisplayBinding="{Binding Title}"
+                                SelectedItem="{Binding SelectedRecipe}"
+                                BackgroundColor="#7D7C7C"
+                                TextColor="Black" />
 
-                <Label Text="Unit" FontSize="Medium" />
-                <Editor Text="{Binding Unit, Mode=TwoWay}" FontSize="Medium" />
+                        <Label Text="Ingredient" FontSize="15"/>
+                        <Picker ItemsSource="{Binding Ingredients}"
+                                ItemDisplayBinding="{Binding Name}"
+                                SelectedItem="{Binding SelectedIngredient}"
+                                BackgroundColor="#7D7C7C"
+                                TextColor="Black" />
 
-                <StackLayout Orientation="Horizontal" Spacing="10">
-                    <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand" />
-                    <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand" />
-                </StackLayout>
+                        <Label Text="Quantity" FontSize="15"/>
+                        <Editor Text="{Binding Quantity, Mode=TwoWay}"
+                                HeightRequest="40"
+                                VerticalOptions="Start"
+                                Margin="0,5,0,5"
+                                BackgroundColor="#7D7C7C"
+                                TextColor="Black"
+                                Keyboard="Numeric"
+                                Placeholder="Edit quantity..." />
+
+                        <Label Text="Unit" FontSize="15"/>
+                        <Editor Text="{Binding Unit, Mode=TwoWay}"
+                                HeightRequest="40"
+                                VerticalOptions="Start"
+                                Margin="0,5,0,5"
+                                BackgroundColor="#7D7C7C"
+                                TextColor="Black"
+                                Placeholder="Edit unit..." />
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+                            <Button Text="Cancel" Command="{Binding CancelCommand}" />
+                            <Button Text="Save" Command="{Binding SaveCommand}" />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
