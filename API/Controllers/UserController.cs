@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 namespace API.Controllers
 {
     [Route("api/[controller]")]
+    [ApiController]
     public class UserController : ControllerBase
     {
         private readonly CulinaryContext _context;
@@ -45,6 +46,28 @@ namespace API.Controllers
             if (user == null)
             {
                 return NotFound();
+            }
+
+            return (UserDto)user;
+        }
+
+        // GET: api/user/5
+        [HttpGet("email/{email}")]
+        public async Task<ActionResult<UserDto>> GetUserByEmail(string email)
+        {
+            if (_context.Users == null)
+            {
+                return NotFound();
+            }
+            var user = await _context.Users
+                .FirstOrDefaultAsync(c => c.Email.Equals(email));
+
+            if (user == null)
+            {
+                user = new UserDto();
+                user.Email = "1";
+                user.PasswordHash = "1";
+                return Ok(user);
             }
 
             return (UserDto)user;
