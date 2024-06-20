@@ -2,38 +2,16 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:CulinaryRecipesApp.Views"
+       xmlns:svg="clr-namespace:SVG.Forms.Plugin.Abstractions;assembly=SVG.Forms.Plugin.Abstractions"
        xmlns:categoryV="clr-namespace:CulinaryRecipesApp.Views.CategoryV"
        xmlns:ingredientV="clr-namespace:CulinaryRecipesApp.Views.IngredientV"
        xmlns:recipeV="clr-namespace:CulinaryRecipesApp.Views.RecipeV"
        xmlns:view="clr-namespace:CulinaryRecipesApp.Views"
        xmlns:recipeIngredientV="clr-namespace:CulinaryRecipesApp.Views.RecipeIngredientV;assembly=CulinaryRecipesApp"
        Title="CulinaryRecipesApp"
-       x:Class="CulinaryRecipesApp.AppShell">
-<<<<<<< HEAD
-
-    <!--
-        The overall app visual hierarchy is defined here, along with navigation.
-    
-        https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
-    -->
-
-    <Shell.Resources>
-        <ResourceDictionary>
-            <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
-                <Setter Property="Shell.ForegroundColor" Value="White" />
-                <Setter Property="Shell.TitleColor" Value="White" />
-                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
-                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
-                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
-                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
-                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
-                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
-            </Style>
-            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
-            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
-=======
-
+       x:Class="CulinaryRecipesApp.AppShell"
+       BackgroundColor="#D8D2CB"
+       FlyoutBackgroundColor="#D8D2CB">
 
     <Shell.FlyoutHeader>
         <StackLayout BackgroundColor="#D8D2CB" Padding="10" VerticalOptions="Center" HorizontalOptions="Center">
@@ -44,138 +22,41 @@
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" Text="Cookiedough" FontSize="Large" TextColor="Black" FontFamily="MsMadi-Regular"
                    VerticalOptions="Center" HorizontalOptions="Center" />
-                <Image Grid.Column="1" Source="cheflogo.png" HeightRequest="60" HorizontalOptions="Start" />
+                <Image Grid.Column="1" Source="Assets/logo2.png" HeightRequest="35" HorizontalOptions="Start" />
+
             </Grid>
         </StackLayout>
     </Shell.FlyoutHeader>
->>>>>>> parent of c61b184 (home, shell etc)
 
-            <!--
-            Default Styles for all Flyout Items
-            https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#flyoutitem-and-menuitem-style-classes
-            -->
-            <Style Class="FlyoutItemLabelStyle" TargetType="Label">
-                <Setter Property="TextColor" Value="White"></Setter>
-            </Style>
-            <Style Class="FlyoutItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
-                <Setter Property="VisualStateManager.VisualStateGroups">
-                    <VisualStateGroupList>
-                        <VisualStateGroup x:Name="CommonStates">
-                            <VisualState x:Name="Normal">
-                                <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{x:OnPlatform UWP=Transparent, iOS=White}" />
-                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
-                                </VisualState.Setters>
-                            </VisualState>
-                            <VisualState x:Name="Selected">
-                                <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
-                                </VisualState.Setters>
-                            </VisualState>
-                        </VisualStateGroup>
-                    </VisualStateGroupList>
-                </Setter>
-            </Style>
 
-<<<<<<< HEAD
-            <!--
-            Custom Style you can apply to any Flyout Item
-            -->
-            <Style Class="MenuItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
-                <Setter Property="VisualStateManager.VisualStateGroups">
-                    <VisualStateGroupList>
-                        <VisualStateGroup x:Name="CommonStates">
-                            <VisualState x:Name="Normal">
-                                <VisualState.Setters>
-                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
-                                </VisualState.Setters>
-                            </VisualState>
-                        </VisualStateGroup>
-                    </VisualStateGroupList>
-                </Setter>
-            </Style>
-        </ResourceDictionary>
-    </Shell.Resources>
-
-    <!-- 
-        When the Flyout is visible this defines the content to display in the flyout.
-        FlyoutDisplayOptions="AsMultipleItems" will create a separate flyout item for each child element    
-        https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
-    -->
-    <FlyoutItem Title="About" Icon="icon_about.png">
-=======
-    <FlyoutItem Title="Home" Icon="icon_about.png">
->>>>>>> parent of c61b184 (home, shell etc)
+    <FlyoutItem Title="Home" Icon="Assets/home.png">
         <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Recipe" Icon="icon_feed.png">
+    <FlyoutItem Title="Recipe" Icon="Assets/recipe.png" >
         <ShellContent Route="RecipePage" ContentTemplate="{DataTemplate recipeV:RecipePage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Category" Icon="icon_feed.png">
+    <FlyoutItem Title="Category" Icon="Assets/category.png">
         <ShellContent Route="CategoryPage" ContentTemplate="{DataTemplate categoryV:CategoryPage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Ingredient" Icon="icon_feed.png">
+    <FlyoutItem Title="Ingredient" Icon="Assets/ingredients.png">
         <ShellContent Route="IngredientPage" ContentTemplate="{DataTemplate ingredientV:IngredientPage}" />
     </FlyoutItem>
     <FlyoutItem Title="Recipe - Ingredient" Icon="icon_feed.png">
         <ShellContent Route="RecipeIngredientPage" ContentTemplate="{DataTemplate recipeIngredientV:RecipeIngredientPage}" />
     </FlyoutItem>
 
-<<<<<<< HEAD
     <FlyoutItem Title="Check it!" Icon="icon_feed.png">
         <ShellContent Route="ExtraValuesPage" ContentTemplate="{DataTemplate view:ExtraValuesPage}" />
     </FlyoutItem>
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
-=======
->>>>>>> parent of c61b184 (home, shell etc)
     <MenuItem Text="Logout" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
     </MenuItem>
 
-    <!--
-        TabBar lets you define content that won't show up in a flyout menu. When this content is active
-        the flyout menu won't be available. This is useful for creating areas of the application where 
-        you don't want users to be able to navigate away from. If you would like to navigate to this 
-        content you can do so by calling 
-        await Shell.Current.GoToAsync("//LoginPage");
-    -->
     <TabBar>
         <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
     </TabBar>
-
-    <!-- Optional Templates 
-    // These may be provided inline as below or as separate classes.
-
-    // This header appears at the top of the Flyout.
-    // https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#flyout-header
-    <Shell.FlyoutHeaderTemplate>
-        <DataTemplate>
-            <Grid>ContentHere</Grid>
-        </DataTemplate>
-    </Shell.FlyoutHeaderTemplate>
-
-    // ItemTemplate is for ShellItems as displayed in a Flyout
-    // https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#define-flyoutitem-appearance
-    <Shell.ItemTemplate>
-        <DataTemplate>
-            <ContentView>
-                Bindable Properties: Title, Icon
-            </ContentView>
-        </DataTemplate>
-    </Shell.ItemTemplate>
-
-    // MenuItemTemplate is for MenuItems as displayed in a Flyout
-    // https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#define-menuitem-appearance
-    <Shell.MenuItemTemplate>
-        <DataTemplate>
-            <ContentView>
-                Bindable Properties: Text, Icon
-            </ContentView>
-        </DataTemplate>
-    </Shell.MenuItemTemplate>
-
-    -->
 
 </Shell>
