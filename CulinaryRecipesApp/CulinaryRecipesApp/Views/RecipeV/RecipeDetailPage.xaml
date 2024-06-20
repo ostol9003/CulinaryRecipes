@@ -20,40 +20,37 @@
 
                     <StackLayout Spacing="15" Padding="15">
 
-                        <!-- Tytuł przepisu -->
+                       
                         <Label Text="{Binding Title}" FontSize="Title" FontFamily="OoohBaby-Regular" HorizontalOptions="Center"/>
 
-                        <!-- Obrazek przepisu -->
+                 
                         <Image Source="{Binding Url}" 
                                Aspect="AspectFill" 
                                HorizontalOptions="FillAndExpand" 
                                HeightRequest="150"/>
 
-                        <!-- Id przepisu -->
                         <Label Text="Id no.:" FontAttributes="Bold" />
                         <Label Text="{Binding Id}" FontFamily="Montserrat-Light" />
 
-                        <!-- Opis przepisu -->
+          
                         <Label Text="Description:" FontAttributes="Bold" />
                         <Label Text="{Binding Description}" FontFamily="Montserrat-Light" />
 
-                        <!-- Instrukcje przepisu -->
+                        
                         <Label Text="Instructions:" FontAttributes="Bold" />
                         <Label Text="{Binding Instructions}" FontFamily="Montserrat-Light" />
 
-                        <!-- Czas przygotowania -->
                         <Label Text="Prep Time:" FontAttributes="Bold" />
                         <Label Text="{Binding PrepTime}" FontFamily="Montserrat-Light" />
 
-                        <!-- Czas gotowania -->
+                      
                         <Label Text="Cook Time:" FontAttributes="Bold" />
                         <Label Text="{Binding CookTime}" FontFamily="Montserrat-Light" />
 
-                        <!-- Składniki -->
+                    
                         <Label Text="Ingredients:" FontAttributes="Bold" />
                         <Label Text="{Binding IngredientsFormatted}" FontFamily="Montserrat-Light" LineBreakMode="WordWrap"/>
 
-                        <!-- Kategorie -->
                         <Label Text="Categories:" FontAttributes="Bold" />
                         <Label Text="{Binding CategoriesFormatted}" FontFamily="Montserrat-Light" LineBreakMode="WordWrap"/>
 
