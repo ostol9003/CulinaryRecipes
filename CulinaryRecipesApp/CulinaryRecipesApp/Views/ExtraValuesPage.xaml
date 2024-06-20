@@ -44,33 +44,44 @@
                             </Grid.RowDefinitions>
 
                             <Label Text="Average Preparation Time in Selected Category:" Grid.Row="0" Grid.Column="0" FontSize="15" FontFamily="Montserrat-Medium" />
-                            <Label Text="{Binding AveragePrepTimeInCategory, Mode=OneWay}" Grid.Row="0" Grid.Column="1" FontSize="15" FontFamily="Montserrat-Regular" TextColor="#FB3640" />
+                            <Label Text="{Binding AveragePrepTimeInCategory, Mode=OneWay}" Grid.Row="0" Grid.Column="1" FontSize="15" FontFamily="Montserrat-Regular" TextColor="#FB3640" VerticalTextAlignment="End" />
 
                             <Label Text="Number of Recipes in Selected Category:" Grid.Row="1" Grid.Column="0" FontSize="15" FontFamily="Montserrat-Medium" />
-                            <Label Text="{Binding RecipesInCategory, Mode=OneWay}" Grid.Row="1" Grid.Column="1" FontSize="15" FontFamily="Montserrat-Regular" TextColor="#FB3640" />
+                            <Label Text="{Binding RecipesInCategory, Mode=OneWay}" Grid.Row="1" Grid.Column="1" FontSize="15" FontFamily="Montserrat-Regular" TextColor="#FB3640" VerticalTextAlignment="End" />
 
                             <Label Text="Average Preparation Time of All Recipes:" Grid.Row="2" Grid.Column="0" FontSize="15" FontFamily="Montserrat-Medium" />
-                            <Label Text="{Binding AveragePrepTime, Mode=OneWay}" Grid.Row="2" Grid.Column="1" FontSize="15" FontFamily="Montserrat-Regular" TextColor="#FB3640" />
+                            <Label Text="{Binding AveragePrepTime, Mode=OneWay}" Grid.Row="2" Grid.Column="1" FontSize="15" FontFamily="Montserrat-Regular" TextColor="#FB3640" VerticalTextAlignment="End" />
                         </Grid>
                     </StackLayout>
                 </Frame>
 
                 <!-- Ingredient Selection and Calculation Frame -->
-                <Frame BackgroundColor="#F6F5F2" BorderColor="#F0EBE3" CornerRadius="10" Padding="10" HasShadow="True">
+                <Frame BackgroundColor="White" BorderColor="#E5E5E5" CornerRadius="10" Padding="10">
                     <StackLayout>
-                        <Label Text="Choose ingredient to calculate:" FontFamily="Montserrat-Light" FontSize="17" HorizontalTextAlignment="Center" />
+                        <Label Text="Calculate how many recipes has particular ingredient" FontFamily="OoohBaby-Regular" FontSize="20" HorizontalTextAlignment="Center" />
+                        <Label Text="Choose ingredient to calculate:" FontSize="17" FontFamily="Montserrat-LightItalic" HorizontalOptions="Center"/>
+
+                        <!-- Picker for Ingredient Selection -->
                         <Picker Title="Select Ingredient" 
-                                ItemsSource="{Binding Ingredients}" 
-                                ItemDisplayBinding="{Binding Name}" 
-                                SelectedItem="{Binding SelectedIngredient}" 
-                                TitleColor="Gray" />
-                        <Button Text="Calculate Recipes with Ingredient" 
-                                Command="{Binding RecipesWithIngredientCommand}" 
-                                HorizontalOptions="Center" />
-                        <Label Text="Number of Recipes with Selected Ingredient" FontFamily="Montserrat-Light" FontSize="17" HorizontalTextAlignment="Center" />
-                        <Label Text="{Binding RecipesWithIngredient, Mode=OneWay}" FontFamily="Montserrat-Regular" FontSize="17" HorizontalTextAlignment="Center" TextColor="#FB3640" />
+                ItemsSource="{Binding Ingredients}" 
+                ItemDisplayBinding="{Binding Name}" 
+                SelectedItem="{Binding SelectedIngredient}" />
+
+                        <Button Text="Calculate" 
+                Command="{Binding RecipesWithIngredientCommand}" 
+                HorizontalOptions="Center" />
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Number of Recipes with Selected Ingredient:" FontSize="15" HorizontalOptions="Center" Grid.Column="0"/>
+                            <Label Text="{Binding RecipesWithIngredient, Mode=OneWay}" HorizontalOptions="Center" Grid.Column="1" FontSize="15" FontFamily="Montserrat-Regular" TextColor="#FB3640" VerticalTextAlignment="End" />
+                        </Grid>
+
                     </StackLayout>
                 </Frame>
+
 
             </StackLayout>
         </ScrollView>
