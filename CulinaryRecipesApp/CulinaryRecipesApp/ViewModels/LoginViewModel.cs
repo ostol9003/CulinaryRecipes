@@ -49,7 +49,7 @@ public class LoginViewModel : BaseViewModel
         if (user.Email.Equals("1"))
         {
             // Obsłuż przypadek, gdy użytkownik nie istnieje
-            await Application.Current.MainPage.DisplayAlert("Error", "User not found.", "OK");
+            await Application.Current.MainPage.DisplayAlert("Error", "Invalid email or password.", "OK");
             return;
         }
 
