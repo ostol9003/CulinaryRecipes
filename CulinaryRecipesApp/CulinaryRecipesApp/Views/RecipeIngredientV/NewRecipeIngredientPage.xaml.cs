@@ -2,15 +2,15 @@
 using RecipeAppService;
 using Xamarin.Forms;
 
-namespace CulinaryRecipesApp.Views.RecipeIngredientV
+namespace CulinaryRecipesApp.Views.RecipeIngredientV;
+
+public partial class NewRecipeIngredientPage : ContentPage
 {
-    public partial class NewRecipeIngredientPage : ContentPage
+    public NewRecipeIngredientPage()
     {
-        public RecipeIngredientDto Item { get; set; }
-        public NewRecipeIngredientPage()
-        {
-            InitializeComponent();
-            BindingContext = new NewRecipeIngredientViewModel();
-        }
+        InitializeComponent();
+        BindingContext = new NewRecipeIngredientViewModel();
     }
+
+    public RecipeIngredientDto Item { get; set; }
 }

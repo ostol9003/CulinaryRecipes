@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CulinaryRecipesApp.Views.RecipeV.RecipeNewPage"
@@ -9,7 +10,8 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Label Text="Add New Recipe" FontSize="Header" HorizontalOptions="Center" Margin="0,10,0,0" FontFamily="OoohBaby-Regular" />
+                <Label Text="Add New Recipe" FontSize="Header" HorizontalOptions="Center" Margin="0,10,0,0"
+                       FontFamily="OoohBaby-Regular" />
 
                 <Frame CornerRadius="5"
                        BorderColor="#F6F5F2"
@@ -17,7 +19,7 @@
                        Padding="5"
                        HasShadow="True">
                     <StackLayout>
-                        <Label Text="Title" FontSize="15"/>
+                        <Label Text="Title" FontSize="15" />
                         <Editor Text="{Binding Title, Mode=TwoWay}"
                                 HeightRequest="40"
                                 VerticalOptions="Start"
@@ -26,7 +28,7 @@
                                 TextColor="Black"
                                 Placeholder="Enter title..." />
 
-                        <Label Text="Description" FontSize="15"/>
+                        <Label Text="Description" FontSize="15" />
                         <Editor Text="{Binding Description, Mode=TwoWay}"
                                 HeightRequest="60"
                                 VerticalOptions="Start"
@@ -35,7 +37,7 @@
                                 TextColor="Black"
                                 Placeholder="Enter description..." />
 
-                        <Label Text="Instructions" FontSize="15"/>
+                        <Label Text="Instructions" FontSize="15" />
                         <Editor Text="{Binding Instructions, Mode=TwoWay}"
                                 HeightRequest="60"
                                 VerticalOptions="Start"
@@ -44,7 +46,7 @@
                                 TextColor="Black"
                                 Placeholder="Enter instructions..." />
 
-                        <Label Text="Prep Time (minutes)" FontSize="15"/>
+                        <Label Text="Prep Time (minutes)" FontSize="15" />
                         <Editor Text="{Binding PrepTime, Mode=TwoWay}"
                                 HeightRequest="40"
                                 VerticalOptions="Start"
@@ -54,7 +56,7 @@
                                 Placeholder="Enter prep time..."
                                 Keyboard="Numeric" />
 
-                        <Label Text="Cook Time (minutes)" FontSize="15"/>
+                        <Label Text="Cook Time (minutes)" FontSize="15" />
                         <Editor Text="{Binding CookTime, Mode=TwoWay}"
                                 HeightRequest="40"
                                 VerticalOptions="Start"
@@ -64,7 +66,7 @@
                                 Placeholder="Enter cook time..."
                                 Keyboard="Numeric" />
 
-                        <Label Text="Url" FontSize="15"/>
+                        <Label Text="Url" FontSize="15" />
                         <Editor Text="{Binding Url, Mode=TwoWay}"
                                 HeightRequest="40"
                                 VerticalOptions="Start"

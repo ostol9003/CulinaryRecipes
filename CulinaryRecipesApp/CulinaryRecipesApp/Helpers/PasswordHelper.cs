@@ -1,18 +1,14 @@
-﻿using BCrypt.Net;
-namespace API.Helpers
+﻿namespace API.Helpers;
+
+public static class PasswordHelper
 {
-
-    public static class PasswordHelper
+    public static string HashPassword(string password)
     {
-        public static string HashPassword(string password)
-        {
-            return BCrypt.Net.BCrypt.HashPassword(password);
-        }
-
-        public static bool VerifyPassword(string password, string hashedPassword)
-        {
-            return BCrypt.Net.BCrypt.Verify(password, hashedPassword);
-        }
+        return BCrypt.Net.BCrypt.HashPassword(password);
     }
 
+    public static bool VerifyPassword(string password, string hashedPassword)
+    {
+        return BCrypt.Net.BCrypt.Verify(password, hashedPassword);
+    }
 }

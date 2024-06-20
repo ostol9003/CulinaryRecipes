@@ -2,15 +2,14 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace CulinaryRecipesApp.Views
+namespace CulinaryRecipesApp.Views;
+
+[XamlCompilation(XamlCompilationOptions.Compile)]
+public partial class ExtraValuesPage : ContentPage
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ExtraValuesPage : ContentPage
+    public ExtraValuesPage()
     {
-        public ExtraValuesPage()
-        {
-            InitializeComponent();
-            BindingContext = new ExtraValuesVieModel();
-        }
+        InitializeComponent();
+        BindingContext = new ExtraValuesVieModel();
     }
 }

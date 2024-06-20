@@ -2,21 +2,22 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace CulinaryRecipesApp.Views.IngredientV
+namespace CulinaryRecipesApp.Views.IngredientV;
+
+[XamlCompilation(XamlCompilationOptions.Compile)]
+public partial class IngredientPage : ContentPage
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class IngredientPage : ContentPage
+    private readonly IngredientViewModel _viewModel;
+
+    public IngredientPage()
     {
-        private IngredientViewModel _viewModel;
-        public IngredientPage()
-        {
-            InitializeComponent();
-            BindingContext = _viewModel = new IngredientViewModel();
-        }
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            _viewModel.OnAppearing();
-        }
+        InitializeComponent();
+        BindingContext = _viewModel = new IngredientViewModel();
+    }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        _viewModel.OnAppearing();
     }
 }

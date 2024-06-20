@@ -1,21 +1,15 @@
 ﻿using CulinaryRecipesApp.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace CulinaryRecipesApp.Views
+namespace CulinaryRecipesApp.Views;
+
+[XamlCompilation(XamlCompilationOptions.Compile)]
+public partial class LoginPage : ContentPage
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginPage : ContentPage
+    public LoginPage()
     {
-        public LoginPage()
-        {
-            InitializeComponent();
-            this.BindingContext = new LoginViewModel();
-        }
+        InitializeComponent();
+        BindingContext = new LoginViewModel();
     }
 }

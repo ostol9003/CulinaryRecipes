@@ -1,16 +1,12 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using RecipeAppService;
 
-namespace CulinaryRecipesApp.Services
+namespace CulinaryRecipesApp.Services;
+
+public class UserDataStore : ADataStore
 {
-    public class UserDataStore : ADataStore
+    public async Task<UserDto> GetUser(string email)
     {
-        public UserDataStore()
-            : base()
-        {
-        }
-          public async Task<UserDto> GetUser(string email)
-              => await recipeService.EmailAsync(email);
+        return await recipeService.EmailAsync(email);
     }
 }

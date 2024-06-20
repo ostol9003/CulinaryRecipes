@@ -2,15 +2,14 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace CulinaryRecipesApp.Views.IngredientV
+namespace CulinaryRecipesApp.Views.IngredientV;
+
+[XamlCompilation(XamlCompilationOptions.Compile)]
+public partial class IngredientDetailPage : ContentPage
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class IngredientDetailPage : ContentPage
+    public IngredientDetailPage()
     {
-        public IngredientDetailPage()
-        {
-            InitializeComponent();
-            BindingContext = new IngredientDetailsViewModel();
-        }
+        InitializeComponent();
+        BindingContext = new IngredientDetailsViewModel();
     }
 }

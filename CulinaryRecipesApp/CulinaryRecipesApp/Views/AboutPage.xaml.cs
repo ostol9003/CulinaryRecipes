@@ -1,15 +1,11 @@
-﻿using System;
-using System.ComponentModel;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms;
 
-namespace CulinaryRecipesApp.Views
+namespace CulinaryRecipesApp.Views;
+
+public partial class AboutPage : ContentPage
 {
-    public partial class AboutPage : ContentPage
+    public AboutPage()
     {
-        public AboutPage()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

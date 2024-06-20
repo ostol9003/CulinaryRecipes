@@ -6,33 +6,34 @@
 
 
     <ContentPage.Content>
-    <StackLayout>
+        <StackLayout>
 
-            <Label Text="Category Details" FontSize="Header" HorizontalOptions="Center" Margin="0,10,0,0" FontFamily="OoohBaby-Regular" />
+            <Label Text="Category Details" FontSize="Header" HorizontalOptions="Center" Margin="0,10,0,0"
+                   FontFamily="OoohBaby-Regular" />
 
 
             <!-- Nazwa kategorii -->
-            <Label Text="{Binding Name}" FontSize="Title" FontFamily="OoohBaby-Regular" HorizontalOptions="Center"/>
-            <Image Source="{Binding Url}" 
-                                   Aspect="AspectFill" 
-                                   HorizontalOptions="FillAndExpand" 
-                                   HeightRequest="150"/>
+            <Label Text="{Binding Name}" FontSize="Title" FontFamily="OoohBaby-Regular" HorizontalOptions="Center" />
+            <Image Source="{Binding Url}"
+                   Aspect="AspectFill"
+                   HorizontalOptions="FillAndExpand"
+                   HeightRequest="150" />
 
             <!-- Id kategorii -->
             <Grid>
                 <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
                 <Label Text="Id no.:" />
                 <Label Grid.Column="1" Text="{Binding Id}" FontFamily="Montserrat-Light" />
             </Grid>
 
-        <StackLayout Orientation="Horizontal" Spacing="10">
-            <Button Text="Edit" Command="{Binding UpdateCommand}" />
-            <Button Text="Delete" Command="{Binding DeleteCommand}" />
-            <Button Text="Back" Command="{Binding CancelCommand}" />
+            <StackLayout Orientation="Horizontal" Spacing="10">
+                <Button Text="Edit" Command="{Binding UpdateCommand}" />
+                <Button Text="Delete" Command="{Binding DeleteCommand}" />
+                <Button Text="Back" Command="{Binding CancelCommand}" />
+            </StackLayout>
         </StackLayout>
-    </StackLayout>
-</ContentPage.Content>
+    </ContentPage.Content>
 </ContentPage>

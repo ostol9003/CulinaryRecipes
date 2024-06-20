@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CulinaryRecipesApp.Views.IngredientV.IngredientPage"
@@ -8,43 +9,42 @@
              BackgroundColor="White"
              Title="Ingredients">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add new" Command="{Binding AddItemCommand}"/>
+        <ToolbarItem Text="Add new" Command="{Binding AddItemCommand}" />
     </ContentPage.ToolbarItems>
-    <RefreshView x:DataType="local:IngredientViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+    <RefreshView x:DataType="local:IngredientViewModel" Command="{Binding LoadItemsCommand}"
+                 IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
         <CollectionView x:Name="ItemsListView"
                         ItemsSource="{Binding Items}"
                         SelectionMode="None">
             <CollectionView.ItemsLayout>
-                <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="3" VerticalItemSpacing="3"/>
+                <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="3" VerticalItemSpacing="3" />
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame CornerRadius="5" Padding="0" Margin="0,0,0,5" BackgroundColor="#F6F5F2" HasShadow="True" BorderColor="#F0EBE3">
+                    <Frame CornerRadius="5" Padding="0" Margin="0,0,0,5" BackgroundColor="#F6F5F2" HasShadow="True"
+                           BorderColor="#F0EBE3">
                         <StackLayout x:DataType="recipeAppService:IngredientDto">
-                            <Image Source="{Binding Url}" 
-                                   Aspect="AspectFill" 
-                                   HorizontalOptions="FillAndExpand" 
-                                   HeightRequest="150"/>
-                            <Label Text="{Binding Name}" 
+                            <Image Source="{Binding Url}"
+                                   Aspect="AspectFill"
+                                   HorizontalOptions="FillAndExpand"
+                                   HeightRequest="150" />
+                            <Label Text="{Binding Name}"
                                    FontSize="30"
                                    TextColor="Black"
                                    FontFamily="OoohBaby-Regular"
                                    Margin="5,0,5,5"
-                                   HorizontalTextAlignment="Center"
-                                   />
-                            <Label Text="{Binding Id, StringFormat='Id no.: {0}'}" 
+                                   HorizontalTextAlignment="Center" />
+                            <Label Text="{Binding Id, StringFormat='Id no.: {0}'}"
                                    FontSize="14"
-                                   TextColor="Black" 
+                                   TextColor="Black"
                                    FontFamily="Montserrat-Light"
                                    Margin="5,5,5,5"
-                                   HorizontalTextAlignment="Center"
-                                   />
+                                   HorizontalTextAlignment="Center" />
                             <StackLayout.GestureRecognizers>
-                                <TapGestureRecognizer 
+                                <TapGestureRecognizer
                                     NumberOfTapsRequired="1"
-                                    Command="{Binding Source={RelativeSource AncestorType={x:Type local:IngredientViewModel}}, Path=ItemTapped}"    
-                                    CommandParameter="{Binding .}">
-                                </TapGestureRecognizer>
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type local:IngredientViewModel}}, Path=ItemTapped}"
+                                    CommandParameter="{Binding .}" />
                             </StackLayout.GestureRecognizers>
                         </StackLayout>
                     </Frame>
@@ -53,4 +53,3 @@
         </CollectionView>
     </RefreshView>
 </ContentPage>
-

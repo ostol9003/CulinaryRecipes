@@ -2,15 +2,14 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace CulinaryRecipesApp.Views.CategoryV
+namespace CulinaryRecipesApp.Views.CategoryV;
+
+[XamlCompilation(XamlCompilationOptions.Compile)]
+public partial class CategoryDetailPage : ContentPage
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CategoryDetailPage : ContentPage
+    public CategoryDetailPage()
     {
-        public CategoryDetailPage()
-        {
-            InitializeComponent();
-            BindingContext = new CategoryDetailsViewModel();
-        }
+        InitializeComponent();
+        BindingContext = new CategoryDetailsViewModel();
     }
 }

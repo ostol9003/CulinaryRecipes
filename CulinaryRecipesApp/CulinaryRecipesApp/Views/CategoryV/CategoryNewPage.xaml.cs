@@ -2,15 +2,15 @@
 using RecipeAppService;
 using Xamarin.Forms;
 
-namespace CulinaryRecipesApp.Views.CategoryV
+namespace CulinaryRecipesApp.Views.CategoryV;
+
+public partial class CategoryNewPage : ContentPage
 {
-    public partial class CategoryNewPage : ContentPage
+    public CategoryNewPage()
     {
-        public CategoryDto Item { get; set; }
-        public CategoryNewPage()
-        {
-            InitializeComponent();
-            BindingContext = new NewCategoryViewModel();
-        }
+        InitializeComponent();
+        BindingContext = new NewCategoryViewModel();
     }
+
+    public CategoryDto Item { get; set; }
 }

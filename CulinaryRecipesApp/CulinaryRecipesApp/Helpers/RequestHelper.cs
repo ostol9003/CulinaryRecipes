@@ -1,23 +1,22 @@
-﻿using System.Threading.Tasks;
-using System;
+﻿using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
-namespace CulinaryRecipesApp.Helpers
+namespace CulinaryRecipesApp.Helpers;
+
+public static class RequestHelper
 {
-    public static class RequestHelper
+    public static async Task<bool> HandleRequest(this Task serviceMethod)
     {
-        public async static Task<bool> HandleRequest(this Task serviceMethod)
+        try
         {
-            try
-            {
-                await serviceMethod;
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-                return false;
-            }
+            await serviceMethod;
+            return true;
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex.Message);
+            return false;
         }
     }
 }

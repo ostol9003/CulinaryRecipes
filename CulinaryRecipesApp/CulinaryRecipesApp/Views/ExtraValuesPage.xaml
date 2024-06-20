@@ -1,44 +1,46 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CulinaryRecipesApp.Views.ExtraValuesPage"
              BackgroundColor="White">
     <ContentPage.Content>
         <ScrollView>
-<StackLayout Spacing="10" Padding="15">
-            
-            <Label Text="Average Preparation Time of All Recipes" FontSize="Medium" />
-            <Label Text="{Binding AveragePrepTime, Mode=OneWay}" HorizontalOptions="Center" FontSize="Medium" />
+            <StackLayout Spacing="10" Padding="15">
 
-            
-            <Picker Title="Select Category" 
-                    ItemsSource="{Binding Categories}" 
-                    ItemDisplayBinding="{Binding Name}" 
-                    SelectedItem="{Binding SelectedCategory}" 
-                    FontSize="Medium" Margin="0" />
-            <Button Text="Calculate Average Prep Time in Category" 
-                    Command="{Binding AveragePrepTimeInCategoryCommand}" 
-                    HorizontalOptions="Center" Margin="4"/>
-            <Label Text="Average Preparation Time in Selected Category" FontSize="Medium" />
-            <Label Text="{Binding AveragePrepTimeInCategory, Mode=OneWay}" HorizontalOptions="Center" FontSize="Medium" />
-
-           
-            <Label Text="Number of Recipes in Selected Category" FontSize="Medium" />
-            <Label Text="{Binding RecipesInCategory, Mode=OneWay}" HorizontalOptions="Center" FontSize="Medium" />
+                <Label Text="Average Preparation Time of All Recipes" FontSize="Medium" />
+                <Label Text="{Binding AveragePrepTime, Mode=OneWay}" HorizontalOptions="Center" FontSize="Medium" />
 
 
-            <Picker Title="Select Ingredient" 
-                    ItemsSource="{Binding Ingredients}" 
-                    ItemDisplayBinding="{Binding Name}" 
-                    SelectedItem="{Binding SelectedIngredient}" 
-                    FontSize="Medium" Margin="0" />
-            <Button Text="Calculate Recipes with Ingredient" 
-                    Command="{Binding RecipesWithIngredientCommand}" 
-                    HorizontalOptions="Center" Margin="4"/>
-            <Label Text="Number of Recipes with Selected Ingredient" FontSize="Medium" />
-            <Label Text="{Binding RecipesWithIngredient, Mode=OneWay}" HorizontalOptions="Center" FontSize="Medium" />
-        </StackLayout>
+                <Picker Title="Select Category"
+                        ItemsSource="{Binding Categories}"
+                        ItemDisplayBinding="{Binding Name}"
+                        SelectedItem="{Binding SelectedCategory}"
+                        FontSize="Medium" Margin="0" />
+                <Button Text="Calculate Average Prep Time in Category"
+                        Command="{Binding AveragePrepTimeInCategoryCommand}"
+                        HorizontalOptions="Center" Margin="4" />
+                <Label Text="Average Preparation Time in Selected Category" FontSize="Medium" />
+                <Label Text="{Binding AveragePrepTimeInCategory, Mode=OneWay}" HorizontalOptions="Center"
+                       FontSize="Medium" />
+
+
+                <Label Text="Number of Recipes in Selected Category" FontSize="Medium" />
+                <Label Text="{Binding RecipesInCategory, Mode=OneWay}" HorizontalOptions="Center" FontSize="Medium" />
+
+
+                <Picker Title="Select Ingredient"
+                        ItemsSource="{Binding Ingredients}"
+                        ItemDisplayBinding="{Binding Name}"
+                        SelectedItem="{Binding SelectedIngredient}"
+                        FontSize="Medium" Margin="0" />
+                <Button Text="Calculate Recipes with Ingredient"
+                        Command="{Binding RecipesWithIngredientCommand}"
+                        HorizontalOptions="Center" Margin="4" />
+                <Label Text="Number of Recipes with Selected Ingredient" FontSize="Medium" />
+                <Label Text="{Binding RecipesWithIngredient, Mode=OneWay}" HorizontalOptions="Center" FontSize="Medium" />
+            </StackLayout>
         </ScrollView>
-        
+
     </ContentPage.Content>
 </ContentPage>
