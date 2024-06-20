@@ -5,8 +5,7 @@
              xmlns:local="clr-namespace:CulinaryRecipesApp.ViewModels.RecipeVM"
              xmlns:recipeAppService="clr-namespace:RecipeAppService"
              x:Name="BrowseRecipePage"
-             BackgroundColor="White"
-             Title="Recipes">
+             BackgroundColor="White">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add new" Command="{Binding AddItemCommand}"/>
