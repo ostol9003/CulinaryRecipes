@@ -59,6 +59,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\ExtraValuesPage.xaml.cs">
+      <DependentUpon>ExtraValuesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\RecipeIngredientV\RecipeIngredientDetailPage.xaml.cs">
       <DependentUpon>RecipeIngredientDetailPage.xaml</DependentUpon>
     </Compile>
@@ -110,6 +113,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\ExtraValuesPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\RecipeIngredientV\RecipeIngredientDetailPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>

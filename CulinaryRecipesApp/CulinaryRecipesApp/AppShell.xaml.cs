@@ -29,6 +29,8 @@ namespace CulinaryRecipesApp
              Routing.RegisterRoute(nameof(RecipeIngredientUpdatePage), typeof(RecipeIngredientUpdatePage));
              Routing.RegisterRoute(nameof(NewRecipeIngredientPage), typeof(NewRecipeIngredientPage));
 
+            
+
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)
