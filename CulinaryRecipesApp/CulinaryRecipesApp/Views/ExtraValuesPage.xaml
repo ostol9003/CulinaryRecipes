@@ -25,7 +25,7 @@
                                 ItemsSource="{Binding Categories}" 
                                 ItemDisplayBinding="{Binding Name}" 
                                 SelectedItem="{Binding SelectedCategory}"
-                                TitleColor="Gray" />
+                                TitleColor="Black" />
                         <Button Text="Calculate" 
                                 Command="{Binding AveragePrepTimeInCategoryCommand}" 
                                 HorizontalOptions="Center" />
@@ -61,13 +61,14 @@
 
                         <!-- Picker for Ingredient Selection -->
                         <Picker Title="Select Ingredient" 
-                ItemsSource="{Binding Ingredients}" 
-                ItemDisplayBinding="{Binding Name}" 
-                SelectedItem="{Binding SelectedIngredient}" />
+                        ItemsSource="{Binding Ingredients}" 
+                        ItemDisplayBinding="{Binding Name}" 
+                        SelectedItem="{Binding SelectedIngredient}"
+                        TitleColor="Black"/>
 
                         <Button Text="Calculate" 
-                Command="{Binding RecipesWithIngredientCommand}" 
-                HorizontalOptions="Center" />
+                        Command="{Binding RecipesWithIngredientCommand}" 
+                        HorizontalOptions="Center" />
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="2*"/>
