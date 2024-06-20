@@ -44,19 +44,19 @@
     <FlyoutItem Title="Ingredient" Icon="Assets/ingredients.png">
         <ShellContent Route="IngredientPage" ContentTemplate="{DataTemplate ingredientV:IngredientPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Recipe - Ingredient" Icon="icon_feed.png">
+    <FlyoutItem Title="Recipe - Ingredient" Icon="Assets/RI.png">
         <ShellContent Route="RecipeIngredientPage" ContentTemplate="{DataTemplate recipeIngredientV:RecipeIngredientPage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Check it!" Icon="icon_feed.png">
+    <FlyoutItem Title="Statistics" Icon="Assets/stat.png">
         <ShellContent Route="ExtraValuesPage" ContentTemplate="{DataTemplate view:ExtraValuesPage}" />
     </FlyoutItem>
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
-    <MenuItem Text="Logout" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
+    <MenuItem Text="Logout" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked" Icon="Assets/logout.png"> 
     </MenuItem>
 
     <TabBar>
-        <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
+        <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}"  />
     </TabBar>
 
 </Shell>
