@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -7,12 +6,34 @@
              mc:Ignorable="d"
              x:Class="CulinaryRecipesApp.Views.LoginPage"
              Shell.NavBarIsVisible="False"
-             Background="white">
+             BackgroundColor="White">
+
     <ContentPage.Content>
-        <StackLayout Padding="20" VerticalOptions="CenterAndExpand">
-            <Entry Placeholder="Email" Text="{Binding Email}" Keyboard="Email" Margin="0,0,0,10" />
-            <Entry Placeholder="Password" IsPassword="True" Text="{Binding Password}" Margin="0,0,0,10" />
-            <Button Text="Login" Command="{Binding LoginCommand}" HorizontalOptions="FillAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout Padding="20" VerticalOptions="CenterAndExpand" Spacing="20">
+                <Grid HorizontalOptions="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Text="Cookiedough" FontSize="70" TextColor="Black" FontFamily="MsMadi-Regular"
+                   VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                    <Image Grid.Column="1" Source="Assets/logo2.png" HeightRequest="50" HorizontalOptions="Start" />
+
+                </Grid>
+                <Label Text="Welcome!" FontSize="Header" HorizontalOptions="Center" FontFamily="OoohBaby-Regular" />
+
+                <!-- Frame for login form -->
+                <Frame CornerRadius="10" BorderColor="#F6F5F2" BackgroundColor="#FFFBF5" Padding="20" HasShadow="True">
+                    <StackLayout Spacing="15">
+                        <Entry Placeholder="Email" Text="{Binding Email}" Keyboard="Email" BackgroundColor="#7D7C7C" TextColor="Black" PlaceholderColor="#B2B2B2" Margin="0,0,0,10" />
+
+                        <Entry Placeholder="Password" IsPassword="True" Text="{Binding Password}" BackgroundColor="#7D7C7C" TextColor="Black" PlaceholderColor="#B2B2B2" Margin="0,0,0,10" />
+
+                        <Button Text="Login" Command="{Binding LoginCommand}" BackgroundColor="#7D7C7C" TextColor="White" HorizontalOptions="FillAndExpand" />
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
