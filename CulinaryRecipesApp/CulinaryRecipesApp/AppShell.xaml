@@ -2,12 +2,14 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:CulinaryRecipesApp.Views"
+       xmlns:svg="clr-namespace:SVG.Forms.Plugin.Abstractions;assembly=SVG.Forms.Plugin.Abstractions"
        xmlns:categoryV="clr-namespace:CulinaryRecipesApp.Views.CategoryV"
        xmlns:ingredientV="clr-namespace:CulinaryRecipesApp.Views.IngredientV"
        xmlns:recipeV="clr-namespace:CulinaryRecipesApp.Views.RecipeV"
        Title="CulinaryRecipesApp"
-       x:Class="CulinaryRecipesApp.AppShell">
-
+       x:Class="CulinaryRecipesApp.AppShell"
+       BackgroundColor="#D8D2CB"
+       FlyoutBackgroundColor="#D8D2CB">
 
     <Shell.FlyoutHeader>
         <StackLayout BackgroundColor="#D8D2CB" Padding="10" VerticalOptions="Center" HorizontalOptions="Center">
@@ -18,29 +20,30 @@
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" Text="Cookiedough" FontSize="Large" TextColor="Black" FontFamily="MsMadi-Regular"
                    VerticalOptions="Center" HorizontalOptions="Center" />
-                <Image Grid.Column="1" Source="cheflogo.png" HeightRequest="60" HorizontalOptions="Start" />
+                <Image Grid.Column="1" Source="Assets/logo2.png" HeightRequest="35" HorizontalOptions="Start" />
+
             </Grid>
         </StackLayout>
     </Shell.FlyoutHeader>
 
 
-    <FlyoutItem Title="Home" Icon="icon_about.png">
+    <FlyoutItem Title="Home" Icon="Assets/home.png">
         <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Recipe" Icon="icon_feed.png">
+    <FlyoutItem Title="Recipe" Icon="Assets/recipe.png" >
         <ShellContent Route="RecipePage" ContentTemplate="{DataTemplate recipeV:RecipePage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Category" Icon="icon_feed.png">
+    <FlyoutItem Title="Category" Icon="Assets/category.png">
         <ShellContent Route="CategoryPage" ContentTemplate="{DataTemplate categoryV:CategoryPage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Ingredient" Icon="icon_feed.png">
+    <FlyoutItem Title="Ingredient" Icon="Assets/ingredients.png">
         <ShellContent Route="IngredientPage" ContentTemplate="{DataTemplate ingredientV:IngredientPage}" />
     </FlyoutItem>
 
-    <MenuItem Text="Logout" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
+    <MenuItem Text="Logout" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked" IconImageSource="Assets/logout.png">
     </MenuItem>
 
     <TabBar>

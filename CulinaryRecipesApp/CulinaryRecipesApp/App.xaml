@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CulinaryRecipesApp.App">
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          x:Class="CulinaryRecipesApp.App">
     <!--
         Define global resources and styles here, that apply to all pages in your app.
     -->
@@ -42,11 +42,10 @@
             </Style>
 
 
-
             <!-- Styl dla etykiet -->
             <Style TargetType="Label">
                 <Setter Property="FontSize" Value="20" />
-                <Setter Property="FontFamily" Value="Montserrat-Medium" />
+                <Setter Property="FontFamily" Value="Montserrat-Light" />
                 <Setter Property="TextColor" Value="Black" />
             </Style>
 
@@ -76,8 +75,6 @@
             
             
             <!-- Style do AppShell-->
-
-
             <Style x:Key="BaseStyle" TargetType="Element">
                 <Setter Property="Shell.BackgroundColor" Value="#D8D2CB" />
                 <Setter Property="Shell.ForegroundColor" Value="Black" />
@@ -88,7 +85,9 @@
                 <Setter Property="Shell.TabBarForegroundColor" Value="Black"/>
                 <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
                 <Setter Property="Shell.TabBarTitleColor" Value="Black"/>
+
             </Style>
+
             <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
             <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
 
@@ -107,7 +106,7 @@
                             </VisualState>
                             <VisualState x:Name="Selected">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="#D8D2CB" />
+                                    <Setter Property="BackgroundColor" Value="#BAB2A8" />
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>
@@ -128,7 +127,9 @@
                     </VisualStateGroupList>
                 </Setter>
             </Style>
-            
+
+
+
         </ResourceDictionary>        
     </Application.Resources>
 </Application>
